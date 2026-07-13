@@ -326,4 +326,42 @@ border-radius:15px;
 color:#777;
 text-align:center;
 box-shadow:0 5px 15px rgba(0,0,0,.05);
+} .wallet-info{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+margin-bottom:20px;
+}
+
+.wallet-info h3{
+color:#081F5C;
+margin-bottom:15px;
+}
+
+.wallet-detail{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 0;
+border-bottom:1px solid #eee;
+}
+
+.wallet-detail:last-child{
+border-bottom:none;
+}
+
+.wallet-detail span{
+color:#666;
+}
+
+.copy-btn{
+margin-top:20px;
+background:#18C37E;
+color:white;
+border:none;
+padding:14px;
+border-radius:12px;
+width:100%;
+font-weight:bold;
 }
