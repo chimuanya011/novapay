@@ -225,4 +225,14 @@ font-size:22px;
 font-weight:bold;
 border:1px solid #ddd;
 border-radius:10px;
+} .otp-box input{
+background:white;
+color:#081F5C;
+border:2px solid #ddd;
+outline:none;
+}
+
+.otp-box input:focus{
+border-color:#18C37E;
+box-shadow:0 0 8px rgba(24,195,126,.25);
 }
