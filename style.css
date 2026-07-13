@@ -210,4 +210,19 @@ text-decoration:none;
     color:white !important;
 } .login-card input::placeholder{
 color:#999;
+} .otp-box{
+display:flex;
+justify-content:space-between;
+gap:8px;
+margin-bottom:25px;
+}
+
+.otp-box input{
+width:45px;
+height:50px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+border:1px solid #ddd;
+border-radius:10px;
 }
