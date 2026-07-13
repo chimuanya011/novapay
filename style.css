@@ -235,4 +235,95 @@ outline:none;
 .otp-box input:focus{
 border-color:#18C37E;
 box-shadow:0 0 8px rgba(24,195,126,.25);
+} .dashboard{
+min-height:100vh;
+padding:25px;
+background:#f5f8ff;
+}
+
+.top-section{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.top-section h2{
+color:#081F5C;
+font-size:24px;
+margin-bottom:5px;
+}
+
+.top-section p{
+color:#666;
+font-size:14px;
+margin:0;
+}
+
+.balance-card{
+background:linear-gradient(135deg,#081F5C,#123EA8);
+padding:25px;
+border-radius:22px;
+color:white;
+margin-bottom:30px;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.balance-card p{
+color:#dbe7ff;
+margin-bottom:10px;
+}
+
+.balance-card h1{
+font-size:36px;
+margin-bottom:25px;
+}
+
+.balance-card button{
+background:#18C37E;
+height:50px;
+width:160px;
+}
+
+
+.dashboard h3{
+color:#081F5C;
+margin:25px 0 15px;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.service-box{
+background:white;
+height:120px;
+border-radius:18px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.service-box span{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.service-box p{
+color:#081F5C;
+font-weight:bold;
+margin:0;
+}
+
+.transaction{
+background:white;
+padding:20px;
+border-radius:15px;
+color:#777;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,.05);
 }
