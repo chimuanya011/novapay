@@ -1,76 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NovaPay - Dashboard</title>
+
+<title>NovaPay Dashboard</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <div class="dashboard">
 
-<div class="top-section">
+<header class="top-bar">
+
+<div class="brand">
+
+<div class="brand-logo">N</div>
+
 <div>
-<h2>Hello, User 👋</h2>
-<p>Welcome back to NovaPay</p>
+
+<h2>NovaPay</h2>
+
+<p>Good Evening 👋</p>
+
 </div>
 
-<div class="small-logo">N</div>
 </div>
 
+</header>
 
-<div class="balance-card">
+<section class="wallet-card">
 
-<p>Wallet Balance</p>
+<p class="wallet-title">
+Available Balance
+</p>
 
-<h1>₦0.00</h1>
+<h1 class="wallet-balance">
+₦0.00
+</h1>
 
-<button onclick="window.location.href='wallet.html'">
+<div class="wallet-buttons">
+
+<a href="wallet.html" class="primary-btn">
+
 Add Money
-</button>
+
+</a>
+
+<a href="#" class="secondary-btn">
+
+History
+
+</a>
 
 </div>
 
+</section>
 
-<h3>Quick Services</h3>
+<section class="quick-services">
 
-<div class="services">
+<h3>
 
-<div class="service-box" onclick="window.location.href='airtime.html'">
-<span>📱</span>
-<p>Airtime</p>
+Quick Services
+
+</h3>
+
+<div class="service-grid">
+
+<a href="airtime.html" class="service-box">
+
+📱
+
+<span>Airtime</span>
+
+</a>
+
+<a href="data.html" class="service-box">
+
+🌐
+
+<span>Data</span>
+
+</a> <a href="electricity.html" class="service-box">
+
+💡
+
+<span>Electricity</span>
+
+</a>
+
+<a href="tv.html" class="service-box">
+
+📺
+
+<span>TV</span>
+
+</a>
+
+<a href="wallet.html" class="service-box">
+
+💳
+
+<span>Wallet</span>
+
+</a>
+
 </div>
-<div class="service-box" onclick="window.location.href='data.html'">
-<span>🌐</span>
-<p>Data</p>
+
+</section>
+
+<section class="transactions">
+
+<h3>
+
+Recent Transactions
+
+</h3>
+
+<div class="empty-card">
+
+<p>
+
+No transactions yet.
+
+</p>
+
+<small>
+
+Your recent payments will appear here.
+
+</small>
+
 </div>
 
+</section>
 
-<div class="service-box" onclick="window.location.href='electricity.html'">
-<span>💡</span>
-<p>Electricity</p>
-</div>
+<section class="support">
 
-<div class="service-box" onclick="window.location.href='tv.html'">
-<span>📺</span>
-<p>TV</p>
-</div>
+<h3>
 
-</div>
+Need Help?
 
+</h3>
 
-<h3>Recent Transactions</h3>
+<p>
 
-<div class="transaction">
+Our support team is available 24/7.
 
-<p>No transactions yet</p>
+</p>
 
-</div>
+<a href="#" class="support-btn">
 
+Contact Support
+
+</a>
+
+</section>
 
 </div>
 
 </body>
+
 </html>
