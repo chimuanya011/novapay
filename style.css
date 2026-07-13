@@ -153,4 +153,59 @@ font-size:15px;
 color:#18C37E;
 font-weight:bold;
 text-decoration:none;
+} .password-box{
+    position:relative;
+}
+
+.password-box input{
+    padding-right:50px;
+}
+
+.password-box span{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+}
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+.options label{
+    color:#555;
+}
+
+.options a{
+    color:#18C37E;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:25px 0;
+    color:#999;
+}
+
+.divider span{
+    padding:0 15px;
+}
+
+.create-btn{
+    background:white !important;
+    color:#18C37E !important;
+    border:2px solid #18C37E !important;
+}
+
+.create-btn:hover{
+    background:#18C37E !important;
+    color:white !important;
 }
