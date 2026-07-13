@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NovaPay Dashboard</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dashboard.css">
 
 </head>
 
@@ -15,19 +17,21 @@
 
 <div class="dashboard">
 
-<header class="top-bar">
-
-<div class="brand">
-
-<div class="brand-logo">N</div>
+<header class="top-header">
 
 <div>
 
-<h2>NovaPay</h2>
+<h3>Good Evening 👋</h3>
 
-<p>Good Evening 👋</p>
+<p>Welcome back</p>
 
 </div>
+
+<div class="top-icons">
+
+<button class="icon-btn">🔔</button>
+
+<button class="icon-btn">👤</button>
 
 </div>
 
@@ -35,23 +39,27 @@
 
 <section class="wallet-card">
 
-<p class="wallet-title">
-Available Balance
+<p class="wallet-label">
+
+Wallet Balance
+
 </p>
 
-<h1 class="wallet-balance">
+<h1>
+
 ₦0.00
+
 </h1>
 
-<div class="wallet-buttons">
+<div class="wallet-actions">
 
-<a href="wallet.html" class="primary-btn">
+<a href="wallet.html" class="green-btn">
 
 Add Money
 
 </a>
 
-<a href="#" class="secondary-btn">
+<a href="#" class="white-btn">
 
 History
 
@@ -59,51 +67,47 @@ History
 
 </div>
 
-</section>
+</section> <section class="quick-services">
 
-<section class="quick-services">
+<h4>Quick Services</h4>
 
-<h3>
+<div class="quick-grid">
 
-Quick Services
+<a href="airtime.html" class="quick-item">
 
-</h3>
-
-<div class="service-grid">
-
-<a href="airtime.html" class="service-box">
-
-📱
+<div class="quick-icon">📞</div>
 
 <span>Airtime</span>
 
 </a>
 
-<a href="data.html" class="service-box">
+<a href="data.html" class="quick-item">
 
-🌐
+<div class="quick-icon">📶</div>
 
 <span>Data</span>
 
-</a> <a href="electricity.html" class="service-box">
+</a>
 
-💡
+<a href="electricity.html" class="quick-item">
+
+<div class="quick-icon">⚡</div>
 
 <span>Electricity</span>
 
 </a>
 
-<a href="tv.html" class="service-box">
+<a href="tv.html" class="quick-item">
 
-📺
+<div class="quick-icon">📺</div>
 
 <span>TV</span>
 
 </a>
 
-<a href="wallet.html" class="service-box">
+<a href="wallet.html" class="quick-item">
 
-💳
+<div class="quick-icon">👛</div>
 
 <span>Wallet</span>
 
@@ -111,55 +115,55 @@ Quick Services
 
 </div>
 
-</section>
+</section> <section class="transactions">
 
-<section class="transactions">
+<h4>Recent Transactions</h4>
 
-<h3>
+<div class="transaction-empty">
 
-Recent Transactions
+<p>No transactions yet</p>
 
-</h3>
-
-<div class="empty-card">
-
-<p>
-
-No transactions yet.
-
-</p>
-
-<small>
-
-Your recent payments will appear here.
-
-</small>
+<small>Your recent payments will appear here.</small>
 
 </div>
 
 </section>
 
-<section class="support">
+<nav class="bottom-nav">
 
-<h3>
+<a href="dashboard.html" class="active">
 
-Need Help?
+🏠
 
-</h3>
-
-<p>
-
-Our support team is available 24/7.
-
-</p>
-
-<a href="#" class="support-btn">
-
-Contact Support
+<span>Home</span>
 
 </a>
 
-</section>
+<a href="wallet.html">
+
+💳
+
+<span>Wallet</span>
+
+</a>
+
+<a href="#">
+
+📂
+
+<span>Services</span>
+
+</a>
+
+<a href="#">
+
+👤
+
+<span>Profile</span>
+
+</a>
+
+</nav>
 
 </div>
 
