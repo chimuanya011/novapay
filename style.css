@@ -208,4 +208,6 @@ text-decoration:none;
 .create-btn:hover{
     background:#18C37E !important;
     color:white !important;
+} .login-card input::placeholder{
+color:#999;
 }
