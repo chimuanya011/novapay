@@ -3,8 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>NovaPay - Create Account</title>
+
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#f5f5f5;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+.login-container{
+width:100%;
+max-width:430px;
+}
+
+.login-card{
+background:#fff;
+padding:35px 25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.small-logo{
+width:70px;
+height:70px;
+border-radius:50%;
+background:#00b16a;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+font-weight:bold;
+margin:0 auto 20px;
+}
+
+h2{
+text-align:center;
+margin-bottom:8px;
+}
+
+.subtitle{
+text-align:center;
+color:#666;
+margin-bottom:30px;
+font-size:14px;
+}
+
+input{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:12px;
+font-size:16px;
+outline:none;
+}
+
+input:focus{
+border-color:#00b16a;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#00b16a;
+color:white;
+border:none;
+border-radius:12px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#00995b;
+}
+
+.register-link{
+text-align:center;
+margin-top:20px;
+font-size:15px;
+}
+
+.register-link a{
+text-decoration:none;
+color:#00b16a;
+font-weight:bold;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -17,9 +121,9 @@
 
 <h2>Create Account</h2>
 
-<p>Join NovaPay today</p>
-
-<input type="text" id="fullName" placeholder="Full Name">
+<p class="subtitle">
+Create your NovaPay account
+</p> <input type="text" id="fullName" placeholder="Full Name">
 
 <input type="text" id="phoneNumber" placeholder="Phone Number">
 
@@ -29,23 +133,24 @@
 
 <input type="password" id="confirmPassword" placeholder="Confirm Password">
 
-<button id="createAccountBtn">Create Account</button>
+<button id="createAccountBtn">
+    Create Account
+</button>
 
 <div class="register-link">
-Already have an account?
-<a href="login.html">Login</a>
+    Already have an account?
+    <a href="login.html">Login</a>
 </div>
 
 </div>
 
-</div>
-
-</body>
-
-<script type="module">
+</div> <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-
+import {
+  getAuth,
+  createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 const firebaseConfig = {
   apiKey: "AIzaSyAt7YnxQ5787wKxlui-sUniR0PP_LZXYxw",
   authDomain: "novapay-c88fa.firebaseapp.com",
@@ -56,16 +161,53 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 console.log("Firebase Connected");
-const app = initializeApp(firebaseConfig);
 
-console.log("Firebase Connected");
+
+const fullName = document.getElementById("fullName");
+const phoneNumber = document.getElementById("phoneNumber");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
 
 const createAccountBtn = document.getElementById("createAccountBtn");
-createAccountBtn.addEventListener("click", () => {
-    alert("Create Account button is working!");
-});
 </script>
+createAccountBtn.addEventListener("click", async () => {
 
+    if (
+        fullName.value === "" ||
+        phoneNumber.value === "" ||
+        email.value === "" ||
+        password.value === "" ||
+        confirmPassword.value === ""
+    ) {
+        alert("Please fill in all fields.");
+        return;
+    if (password.value !== confirmPassword.value) {
+    alert("Passwords do not match.");
+    return;
+}
+
+try {
+
+    const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email.value,
+        password.value
+    );
+
+    alert("Account created successfully!");
+
+    window.location.href = "login.html";
+
+} catch (error) {
+
+    alert(error.message);
+
+}
+
+});
+</body>
 </html>
