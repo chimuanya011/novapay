@@ -19,19 +19,17 @@
 
 <p>Join NovaPay today</p>
 
-<input type="text" placeholder="Full Name">
+<input type="text" id="fullName" placeholder="Full Name">
 
-<input type="text" placeholder="Phone Number">
+<input type="text" id="phoneNumber" placeholder="Phone Number">
 
-<input type="email" placeholder="Email Address">
+<input type="email" id="email" placeholder="Email Address">
 
-<input type="password" placeholder="Create Password">
+<input type="password" id="password" placeholder="Create Password">
 
-<input type="password" placeholder="Confirm Password">
+<input type="password" id="confirmPassword" placeholder="Confirm Password">
 
-<button onclick="window.location.href='verify.html'">
-Create Account
-</button>
+<button id="createAccountBtn">Create Account</button>
 
 <div class="register-link">
 Already have an account?
@@ -43,4 +41,31 @@ Already have an account?
 </div>
 
 </body>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAt7YnxQ5787wKxlui-sUniR0PP_LZXYxw",
+  authDomain: "novapay-c88fa.firebaseapp.com",
+  projectId: "novapay-c88fa",
+  storageBucket: "novapay-c88fa.firebasestorage.app",
+  messagingSenderId: "194275506659",
+  appId: "1:194275506659:web:fcaa1b1e19c559443cc8d6"
+};
+
+const app = initializeApp(firebaseConfig);
+
+console.log("Firebase Connected");
+const app = initializeApp(firebaseConfig);
+
+console.log("Firebase Connected");
+
+const createAccountBtn = document.getElementById("createAccountBtn");
+createAccountBtn.addEventListener("click", () => {
+    alert("Create Account button is working!");
+});
+</script>
+
 </html>
