@@ -181,5 +181,73 @@ font-size:36px;
 }
 
 }
+ 
+} .info-card{
+background:#ffffff;
+border-radius:18px;
+padding:8px 20px;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+margin-bottom:25px;
+}
 
-} 
+.info-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+border-bottom:1px solid #ececec;
+}
+
+.info-row:last-child{
+border-bottom:none;
+}
+
+.info-row span{
+font-size:15px;
+color:#666;
+}
+
+.info-row strong{
+font-size:15px;
+font-weight:600;
+}
+
+.profile-actions{
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.action-btn,
+.logout-btn{
+display:block;
+width:100%;
+padding:16px;
+border-radius:16px;
+text-align:center;
+text-decoration:none;
+font-weight:600;
+font-size:16px;
+transition:.3s;
+}
+
+.action-btn{
+background:#ffffff;
+color:#111;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.action-btn:hover{
+background:#18C37E;
+color:#fff;
+}
+
+.logout-btn{
+background:#111;
+color:#fff;
+}
+
+.logout-btn:hover{
+background:#18C37E;
+}
