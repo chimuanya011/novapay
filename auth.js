@@ -1,57 +1,55 @@
 import { auth } from "./firebase.js";
 
 import {
-  createUserWithEmailAndPassword
+createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-
-  apiKey: "AIzaSyAt7YnxQ5787wKxlui-sUniR0PP_LZXYxw",
-  authDomain: "novapay-c88fa.firebaseapp.com",
-  projectId: "novapay-c88fa",
-  storageBucket: "novapay-c88fa.firebasestorage.app",
-  messagingSenderId: "194275506659",
-  appId: "1:194275506659:web:fcaa1b1e19c559443cc8d6"
-};
-
 const fullName = document.getElementById("fullName");
+
 const phoneNumber = document.getElementById("phoneNumber");
+
 const email = document.getElementById("email");
+
 const password = document.getElementById("password");
+
 const confirmPassword = document.getElementById("confirmPassword");
 
 const createAccountBtn = document.getElementById("createAccountBtn");
 createAccountBtn.addEventListener("click", async () => {
 
-    if (
-        fullName.value.trim() === "" ||
-        phoneNumber.value.trim() === "" ||
-        email.value.trim() === "" ||
-        password.value === "" ||
-        confirmPassword.value === ""
-    ) {
-        alert("Please fill in all fields.");
-        return;
-    }
+if(
+fullName.value.trim()===""||
+phoneNumber.value.trim()===""||
+email.value.trim()===""||
+password.value===""||
+confirmPassword.value===""){
+alert("Please fill in all fields.");
+return;
+}
 
-    if (password.value !== confirmPassword.value) {
-        alert("Passwords do not match.");
-        return;
-    } 
-        try {
+if(password.value!==confirmPassword.value){
+alert("Passwords do not match.");
+return;
+} 
+try{
 
-        const userCredential = await createUserWithEmailAndPassword(
-            auth,
-            email.value.trim(),
-            password.value
-        );
+const userCredential=
+await createUserWithEmailAndPassword(
 
-        alert("Account created successfully!");
+auth,
 
-        window.location.href = "login.html";
+email.value.trim(),
 
-    } catch (error) {
+password.value
 
-        alert(error.message);
+);
 
-    }
+alert("Account created successfully!");
+
+window.location.href="login.html"; 
+}catch(error){
+
+alert(error.message);
+
+}
 
 });

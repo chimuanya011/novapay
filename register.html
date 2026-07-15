@@ -1,109 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NovaPay - Create Account</title>
 
 <link rel="stylesheet" href="style.css">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
-background:#f5f5f5;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:20px;
-}
-
-.register-container{
-width:100%;
-max-width:430px;
-}
-
-.register-card{
-background:#fff;
-padding:35px 25px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.logo{
-width:70px;
-height:70px;
-margin:0 auto 20px;
-background:#00b16a;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-color:#fff;
-font-size:30px;
-font-weight:bold;
-}
-
-h2{
-text-align:center;
-margin-bottom:10px;
-}
-
-.subtitle{
-text-align:center;
-color:#666;
-margin-bottom:25px;
-}
-
-input{
-width:100%;
-padding:15px;
-margin-bottom:15px;
-border:1px solid #ddd;
-border-radius:12px;
-font-size:16px;
-outline:none;
-}
-
-input:focus{
-border-color:#00b16a;
-}
-
-button{
-width:100%;
-padding:15px;
-background:#00b16a;
-color:#fff;
-border:none;
-border-radius:12px;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
-}
-
-button:hover{
-background:#00995b;
-} .register-link{
-text-align:center;
-margin-top:20px;
-font-size:15px;
-}
-
-.register-link a{
-text-decoration:none;
-color:#00b16a;
-font-weight:bold;
-}
-
-</style>
 
 </head>
 
@@ -113,14 +19,9 @@ font-weight:bold;
 
 <div class="register-card">
 
-<div class="logo">N</div>
-
 <h2>Create Account</h2>
 
-<p class="subtitle">
-Create your NovaPay account
-</p>
-
+<p>Create your NovaPay account</p> 
 <input
 type="text"
 id="fullName"
@@ -135,6 +36,7 @@ placeholder="Phone Number">
 type="email"
 id="email"
 placeholder="Email Address">
+
 <input
 type="password"
 id="password"
@@ -147,21 +49,24 @@ placeholder="Confirm Password">
 
 <button id="createAccountBtn">
 Create Account
-</button>
-
+</button> 
 <div class="register-link">
+
 Already have an account?
 
 <a href="login.html">
+
 Login
+
 </a>
 
 </div>
 
 </div>
 
-</div>
+</div> 
 <script type="module" src="auth.js"></script>
 
 </body>
+
 </html>
