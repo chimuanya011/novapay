@@ -1,10 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>NovaPay - Login</title>
+
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+.login-container{
+width:100%;
+max-width:430px;
+}
+
+.login-card{
+background:#fff;
+padding:35px 25px;
+border-radius:22px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.logo{
+width:75px;
+height:75px;
+margin:auto;
+margin-bottom:20px;
+border-radius:50%;
+background:#00b16a;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-size:34px;
+font-weight:bold;
+}
+
+h2{
+text-align:center;
+margin-bottom:10px;
+}
+
+.subtitle{
+text-align:center;
+color:#666;
+margin-bottom:30px;
+font-size:15px;
+} 
+input{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:1px solid #dcdcdc;
+border-radius:12px;
+font-size:16px;
+outline:none;
+transition:.3s;
+}
+
+input:focus{
+border-color:#00b16a;
+box-shadow:0 0 0 3px rgba(0,177,106,.15);
+}
+
+.options{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+font-size:14px;
+}
+
+.options a{
+color:#00b16a;
+text-decoration:none;
+font-weight:bold;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#00b16a;
+color:#fff;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#00995b;
+}
+
+.register-link{
+text-align:center;
+margin-top:20px;
+font-size:15px;
+}
+
+.register-link a{
+color:#00b16a;
+font-weight:bold;
+text-decoration:none;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -13,43 +136,58 @@
 
 <div class="login-card">
 
-<div class="small-logo">N</div>
+<div class="logo">N</div>
 
 <h2>Welcome Back</h2>
 
-<p>Login to continue with NovaPay</p>
+<p class="subtitle">
+Login to continue with NovaPay
+</p> 
+<input
+type="email"
+id="email"
+placeholder="Email Address or Phone Number">
 
-<input type="text" placeholder="Email Address or Phone Number">
-
-<div class="password-box">
-<input type="password" placeholder="Password">
-<span>👁</span>
-</div>
+<input
+type="password"
+id="password"
+placeholder="Password">
 
 <div class="options">
+
 <label>
-<input type="checkbox">
-Remember Me
+<input
+type="checkbox"
+style="width:auto;margin-right:6px;">
+Remember me
 </label>
 
-<a href="#">Forgot Password?</a>
+<a href="#">
+Forgot Password?</a>
+
 </div>
 
-<button onclick="window.location.href='dashboard.html'">
+<button id="loginBtn">
 Login
 </button>
 
-<div class="divider">
-<span>or</span>
-</div>
+<div class="register-link">
 
-<button class="create-btn" onclick="window.location.href='register.html'">
+Don't have an account?
+
+<a href="register.html">
+
 Create New Account
-</button>
+
+</a>
 
 </div>
 
 </div>
+
+</div> 
+<script type="module" src="login.js"></script>
 
 </body>
+
 </html>
