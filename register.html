@@ -11,6 +11,109 @@
 
 <link rel="stylesheet" href="style.css">
 
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+.register-container{
+width:100%;
+max-width:430px;
+}
+
+.register-card{
+background:#ffffff;
+padding:35px 25px;
+border-radius:22px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.logo{
+width:75px;
+height:75px;
+margin:auto;
+margin-bottom:20px;
+border-radius:50%;
+background:#00b16a;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-size:34px;
+font-weight:bold;
+}
+
+h2{
+text-align:center;
+margin-bottom:10px;
+color:#111;
+}
+
+.subtitle{
+text-align:center;
+color:#666;
+margin-bottom:30px;
+font-size:15px;
+} input{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:1px solid #dcdcdc;
+border-radius:12px;
+font-size:16px;
+outline:none;
+transition:.3s;
+}
+
+input:focus{
+border-color:#00b16a;
+box-shadow:0 0 0 3px rgba(0,177,106,.15);
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#00b16a;
+color:#fff;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#00995b;
+}
+
+.register-link{
+text-align:center;
+margin-top:20px;
+font-size:15px;
+}
+
+.register-link a{
+color:#00b16a;
+font-weight:bold;
+text-decoration:none;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -19,10 +122,13 @@
 
 <div class="register-card">
 
+<div class="logo">N</div>
+
 <h2>Create Account</h2>
 
-<p>Create your NovaPay account</p> 
-<input
+<p class="subtitle">
+Create your NovaPay account
+</p> <input
 type="text"
 id="fullName"
 placeholder="Full Name">
@@ -49,7 +155,8 @@ placeholder="Confirm Password">
 
 <button id="createAccountBtn">
 Create Account
-</button> 
+</button>
+
 <div class="register-link">
 
 Already have an account?
