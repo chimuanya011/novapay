@@ -9,8 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.send("NovaPay Backend is Running ✅");
-});app.get("/test-monnify", async (req, res) => {
+    res.send("NovaPay Backend Version 2 ✅");
+});
+;app.get("/test-monnify", async (req, res) => {
 
     try {
 
