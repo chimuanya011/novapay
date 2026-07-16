@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funding Account - NovaPay</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#f5f5f5;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
+}
+
+.container{
+width:100%;
+max-width:420px;
+background:#fff;
+border-radius:25px;
+padding:30px;
+box-shadow:0 10px 35px rgba(0,0,0,.08);
+}
+
+.logo{
+width:70px;
+height:70px;
+border-radius:50%;
+background:#00994d;
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:32px;
+font-weight:bold;
+margin:auto;
+margin-bottom:20px;
+}
+
+h1{
+text-align:center;
+font-size:32px;
+margin-bottom:10px;
+color:#111;
+}
+
+.subtitle{
+text-align:center;
+color:#666;
+margin-bottom:30px;
+font-size:16px;
+}
+
+.card{
+background:#f9f9f9;
+border:1px solid #ddd;
+border-radius:18px;
+padding:20px;
+margin-bottom:25px;
+}
+
+.label{
+font-size:13px;
+color:#666;
+margin-bottom:6px;
+}
+
+.value{
+font-size:18px;
+font-weight:bold;
+color:#111;
+margin-bottom:18px;
+} 
+.generate-btn{
+width:100%;
+padding:16px;
+border:none;
+border-radius:14px;
+background:#00994d;
+color:#fff;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.generate-btn:hover{
+background:#007a3d;
+}
+
+.info-box{
+margin-top:20px;
+padding:15px;
+background:#eef9f2;
+border-left:5px solid #00994d;
+border-radius:10px;
+font-size:14px;
+color:#333;
+line-height:1.6;
+}
+
+.warning{
+margin-top:15px;
+font-size:13px;
+color:#d35400;
+font-weight:bold;
+text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+<i class="fas fa-university"></i>
+</div>
+
+<h1>Funding Account</h1>
+
+<p class="subtitle">
+Generate your personal funding account
+</p>
+
+<div class="card">
+
+<div class="label">Account Name</div>
+<div class="value" id="accountName">
+Kash Patel
+</div>
+
+<div class="label">Bank Name</div>
+<div class="value">
+NovaPay Bank
+</div>
+
+<div class="label">Account Number</div>
+<div class="value" id="accountNumber">
+**********
+</div>
+
+</div><button class="generate-btn" id="generateBtn">
+Generate Funding Account
+</button>
+
+<div class="info-box">
+Fund your NovaPay wallet instantly by generating your personal virtual funding account.
+
+Once generated, you can use this account to fund your wallet anytime.
+</div>
+
+<div class="warning">
+⚠️ Your funding account can only be generated once.
+</div>
+
+</div>
+
+<script>
+
+document.getElementById("generateBtn").addEventListener("click", () => {
+
+alert("Funding account generation will be available in the next update.");
+
+});
+
+</script>
+
+</body>
+</html>
