@@ -171,9 +171,48 @@ Once generated, you can use this account to fund your wallet anytime.
 
 <script>
 
-document.getElementById("generateBtn").addEventListener("click", () => {
+const generateBtn = document.getElementById("generateBtn");
+const accountNumber = document.getElementById("accountNumber");
+const accountName = document.getElementById("accountName");
 
-alert("Funding account generation will be available in the next update.");
+const savedAccount = localStorage.getItem("novapayAccountNumber");
+
+if (savedAccount) {
+    accountNumber.textContent = savedAccount;
+    generateBtn.textContent = "Copy Account Number";
+}
+
+generateBtn.addEventListener("click", () => {
+
+    if (localStorage.getItem("novapayAccountNumber")) {
+
+        navigator.clipboard.writeText(localStorage.getItem("novapayAccountNumber"));
+
+        alert("Account number copied successfully.");
+
+        return;
+    }
+
+    generateBtn.disabled = true;
+    generateBtn.textContent = "Generating...";
+
+    setTimeout(() => {
+
+        const randomNumber =
+            Math.floor(1000000000 + Math.random() * 9000000000).toString();
+
+        accountNumber.textContent = randomNumber;
+
+        accountName.textContent = "NovaPay User";
+
+        localStorage.setItem("novapayAccountNumber", randomNumber);
+
+        generateBtn.disabled = false;
+        generateBtn.textContent = "Copy Account Number";
+
+        alert("Funding account generated successfully.");
+
+    }, 2000);
 
 });
 
