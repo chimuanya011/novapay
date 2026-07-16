@@ -1,0 +1,100 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f3f5f9;
+    padding:25px;
+}
+
+.funding-container{
+    max-width:420px;
+    margin:auto;
+}
+
+h1{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#666;
+    margin-bottom:25px;
+    line-height:1.5;
+}
+
+.fund-card{
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+} 
+.funding-container{
+    max-width:420px;
+    margin:auto;
+} 
+.funding-container{
+    max-width:420px;
+    margin:auto;
+}
+h1{
+    font-size:30px;
+    margin-bottom:10px;
+    color:#111;
+}
+
+.subtitle{
+    color:#666;
+    font-size:15px;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+.fund-card{
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.info{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+    border-bottom:1px solid #eee;
+}
+
+.info:last-child{
+    border-bottom:none;
+}
+
+.label{
+    color:#888;
+    font-size:14px;
+}
+
+.value{
+    font-weight:bold;
+    color:#111;
+}
+
+#fundingBtn{
+    width:100%;
+    margin-top:25px;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:#10b981;
+    color:#fff;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#fundingBtn:hover{
+    opacity:.9;
+}
