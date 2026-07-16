@@ -2,7 +2,7 @@ import { auth } from "./firebase.js";
 
 import {
 createUserWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+} from "https://www.gstatic.com/fire on basejs/12.2.1/firebase-auth.js";
 const fullName = document.getElementById("fullName");
 
 const phoneNumber = document.getElementById("phoneNumber");

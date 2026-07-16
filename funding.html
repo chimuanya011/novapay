@@ -139,9 +139,7 @@ Generate your personal funding account
 <div class="card">
 
 <div class="label">Account Name</div>
-<div class="value" id="accountName">
-Kash Patel
-</div>
+<div class="value" id="accountName"></div>
 
 <div class="label">Bank Name</div>
 <div class="value">
@@ -174,6 +172,8 @@ Once generated, you can use this account to fund your wallet anytime.
 const generateBtn = document.getElementById("generateBtn");
 const accountNumber = document.getElementById("accountNumber");
 const accountName = document.getElementById("accountName");
+const savedName = localStorage.getItem("novapayUserName");
+document.getElementById("accountName").textContent = savedName || "NovaPay User";
 
 const savedAccount = localStorage.getItem("novapayAccountNumber");
 
