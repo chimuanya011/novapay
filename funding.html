@@ -1,124 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fund Wallet | NovaPay</title>
 
-<link rel="stylesheet" href="style.css">
+<title>Fund Wallet</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+background:#f3f5f9;
+
+padding:25px;
+
+}
+
+.card{
+
+background:white;
+
+border-radius:18px;
+
+padding:25px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+max-width:420px;
+
+margin:auto;
+
+}
+
+h1{
+
+font-size:28px;
+
+margin-bottom:10px;
+
+}
+
+p{
+
+color:#666;
+
+margin-bottom:25px;
+
+}
+
+.info{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:18px 0;
+
+border-bottom:1px solid #eee;
+
+}
+
+.label{
+
+color:#888;
+
+}
+
+.value{
+
+font-weight:bold;
+
+}
+
+button{
+
+width:100%;
+
+margin-top:25px;
+
+padding:16px;
+
+border:none;
+
+border-radius:12px;
+
+background:#10b981;
+
+color:white;
+
+font-size:17px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<div class="funding-container">
+<div
+<script>
 
-<h1>Fund Wallet</h1>
+const accountNumber =
+document.getElementById("accountNumber");
 
-<p class="subtitle">
-Transfer money into the account below to fund your NovaPay wallet.
-</p>
+const fundingBtn =
+document.getElementById("fundingBtn");
 
-<div class="fund-card">
+const savedAccount =
+localStorage.getItem("novapayAccountNumber");
 
-<div class="row">
-<span>Account Name</span>
-<strong id="accountName">
-NovaPay User
-</strong>
-</div>
+if(savedAccount){
 
-<div class="row">
-<span>Bank Name</span>
-<strong>
-NovaPay Bank
-</strong>
-</div>
+    accountNumber.textContent = savedAccount;
 
-<div class="row">
-<span>Account Number</span>
-<strong id="accountNumber">
-Not generated yet
-</strong>
-</div>
+    fundingBtn.textContent = "Copy Account Number";
 
-<button id="fundingBtn">
-
-Generate Funding Account
-
-</button>
-
-</div>
-
-</div>
-
-<script src="wallet.js"></script>
-<script src="funding.js"></script>
-
-</body>
-</html>
-body{
-    margin:0;
-    padding:0;
-    font-family:Arial,sans-serif;
-    background:#f5f7fb;
 }
 
-.funding-container{
-    max-width:420px;
-    margin:40px auto;
-    padding:20px;
-}
+fundingBtn.addEventListener("click",()=>{
 
-h1{
-    margin-bottom:10px;
-}
+    const account =
+    localStorage.getItem("novapayAccountNumber");
 
-.subtitle{
-    color:#666;
-    font-size:14px;
-    margin-bottom:25px;
-}
+    if(account){
 
-.fund-card{
-    background:#fff;
-    border-radius:16px;
-    padding:20px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
+        navigator.clipboard.writeText(account);
 
-.row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 0;
-    border-bottom:1px solid #eee;
-}
+        alert("Account Number Copied!");
 
-.row:last-child{
-    border-bottom:none;
-}
+        return;
 
-.row span{
-    color:#777;
-}
+    }
 
-.row strong{
-    color:#111;
-}
+    const newAccount =
+    Math.floor(
+        1000000000 +
+        Math.random()*9000000000
+    ).toString();
 
-#fundingBtn{
-    width:100%;
-    margin-top:25px;
-    background:#10b981;
-    color:#fff;
-    border:none;
-    border-radius:10px;
-    padding:15px;
-    font-size:16px;
-    cursor:pointer;
-}
+    localStorage.setItem(
+        "novapayAccountNumber",
+        newAccount
+    );
 
-#fundingBtn:hover{
-    opacity:.9;
-}
+    accountNumber.textContent =
+    newAccount;
+
+    fundingBtn.textContent =
+    "Copy Account Number";
+
+    alert("Funding Account Generated!");
+
+});
+
+</script>
