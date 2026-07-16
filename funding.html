@@ -148,7 +148,7 @@ NovaPay Bank
 
 <div class="label">Account Number</div>
 <div class="value" id="accountNumber">
-**********
+Not generated yet
 </div>
 
 </div><button class="generate-btn" id="generateBtn">
@@ -177,13 +177,15 @@ document.getElementById("accountName").textContent = savedName || "NovaPay User"
 
 const savedAccount = localStorage.getItem("novapayAccountNumber");
 
+if (!savedAccount)
+    accountNumber.textContent = "Not generated yet";
 if (savedAccount) {
     accountNumber.textContent = savedAccount;
     generateBtn.textContent = "Copy Account Number";
 }
 
 generateBtn.addEventListener("click", () => {
-
+let savedAccount = localStorage.getItem("novapayAccountNumber");
     if (localStorage.getItem("novapayAccountNumber")) {
 
         navigator.clipboard.writeText(localStorage.getItem("novapayAccountNumber"));
