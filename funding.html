@@ -73,65 +73,43 @@ Generate Funding Account
 </div>
 
 </body>
-<script>
-localStorage.removeItem("novapayAccountNumber");
-const accountNumber =
-document.getElementById("accountNumber");
+<script>const accountNumber = document.getElementById("accountNumber");
+const fundingBtn = document.getElementById("fundingBtn");
 
-const fundingBtn =
-document.getElementById("fundingBtn");
-const savedAccount =
-localStorage.getItem("novapayAccountNumber");
+// Load saved account
+let savedAccount = localStorage.getItem("novapayAccountNumber");
 
-if(savedAccount){
-
+if (savedAccount) {
     accountNumber.textContent = savedAccount;
-
     fundingBtn.textContent = "Copy Account Number";
-
-}else{
-
+} else {
     accountNumber.textContent = "Not generated yet";
-
     fundingBtn.textContent = "Generate Funding Account";
-
 }
 
-fundingBtn.addEventListener("click",()=>{
+fundingBtn.onclick = function () {
 
-    savedAccount =
-    localStorage.getItem("novapayAccountNumber");
+    let account = localStorage.getItem("novapayAccountNumber");
 
-    if(savedAccount){
-
-        navigator.clipboard.writeText(savedAccount);
-
+    // If account already exists, copy it
+    if (account) {
+        navigator.clipboard.writeText(account);
         alert("Account Number Copied!");
-
         return;
-
     }
 
-    const newAccount =
-    Math.floor(
-        1000000000 +
-        Math.random()*9000000000
+    // Generate account only once
+    account = Math.floor(
+        1000000000 + Math.random() * 9000000000
     ).toString();
 
-    localStorage.setItem(
-        "novapayAccountNumber",
-        newAccount
-    );
+    localStorage.setItem("novapayAccountNumber", account);
 
-    accountNumber.textContent =
-    newAccount;
-
-    fundingBtn.textContent =
-    "Copy Account Number";
+    accountNumber.textContent = account;
+    fundingBtn.textContent = "Copy Account Number";
 
     alert("Funding Account Generated!");
-
-});
+};
 
 </script>
 
