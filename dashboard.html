@@ -43,12 +43,8 @@
 
 Wallet Balance
 
-</p>
-
-<h1>
-
+<h1 id="walletBalance">
 ₦0.00
-
 </h1>
 
 <div class="wallet-actions">
@@ -162,4 +158,16 @@ History
 
 </body>
 
-</html>
+</html> 
+<script src="wallet.js"></script>
+
+<script>
+Wallet.deposit(5000, "Test Funding");
+const balance = Wallet.getBalance();
+
+document.getElementById("walletBalance").innerText =
+"₦" + balance.toLocaleString(undefined,{
+minimumFractionDigits:2
+});
+
+</script>
