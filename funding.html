@@ -80,8 +80,7 @@ document.getElementById("accountNumber");
 
 const fundingBtn =
 document.getElementById("fundingBtn");
-
-let savedAccount =
+const savedAccount =
 localStorage.getItem("novapayAccountNumber");
 
 if(savedAccount){
@@ -89,6 +88,12 @@ if(savedAccount){
     accountNumber.textContent = savedAccount;
 
     fundingBtn.textContent = "Copy Account Number";
+
+}else{
+
+    accountNumber.textContent = "Not generated yet";
+
+    fundingBtn.textContent = "Generate Funding Account";
 
 }
 
