@@ -14,10 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/test-monnify", async (req, res) => {
-
     try {
-        // rest of the code...
-        
         const auth = Buffer.from(
             process.env.MONNIFY_API_KEY + ":" + process.env.MONNIFY_SECRET_KEY
         ).toString("base64");
@@ -27,7 +24,8 @@ app.get("/test-monnify", async (req, res) => {
             {},
             {
                 headers: {
-                    Authorization: "Basic " + auth
+                    Authorization: "Basic " + auth,
+                    "Content-Type": "application/json"
                 }
             }
         );
@@ -35,14 +33,11 @@ app.get("/test-monnify", async (req, res) => {
         res.json(response.data);
 
     } catch (error) {
-
-        res.status(500).json({
-            error: error.response?.data || error.message
-        });
-
+        console.log("MONNIFY ERROR:", error.response?.data);
+        res.status(500).json(error.response?.data || error.message);
     }
+});
 
-}); 
 app.post("/create-account", async (req, res) => {
 
     try {
