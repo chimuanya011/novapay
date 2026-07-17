@@ -14,10 +14,31 @@ app.get("/", (req, res) => {
 }); 
 app.get("/test-monnify", async (req, res) => {
 
-    res.json({
-        success: true,
-        message: "Monnify route is working."
-    });
+        try {
+
+        const auth = Buffer.from(
+            process.env.MONNIFY_API_KEY + ":" + process.env.MONNIFY_SECRET_KEY
+        ).toString("base64");
+
+        const response = await axios.post(
+            process.env.MONNIFY_BASE_URL + "/api/v1/auth/login",
+            {},
+            {
+                headers: {
+                    Authorization: "Basic " + auth
+                }
+            }
+        );
+
+        res.json(response.data);
+
+    } catch (error) {
+
+        res.status(500).json({
+            error: error.response?.data || error.message
+        });
+
+    }
 
 }); 
 const PORT = process.env.PORT || 3000;
