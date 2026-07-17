@@ -11,11 +11,13 @@ app.use(cors());
 app.use(express.json()); 
 app.get("/", (req, res) => {
     res.send("NovaPay Backend is Running ✅");
-}); 
+});
+
 app.get("/test-monnify", async (req, res) => {
 
-        try {
-
+    try {
+        // rest of the code...
+        
         const auth = Buffer.from(
             process.env.MONNIFY_API_KEY + ":" + process.env.MONNIFY_SECRET_KEY
         ).toString("base64");
