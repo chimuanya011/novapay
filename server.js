@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const axios = require("axios");
-
+const { createReservedAccount } = require("./monnify");
 dotenv.config();
 
 const app = express();
@@ -43,6 +43,28 @@ app.get("/test-monnify", async (req, res) => {
     }
 
 }); 
+app.post("/create-account", async (req, res) => {
+
+    try {
+
+        const { customerName, customerEmail } = req.body;
+
+        const account = await createReservedAccount(
+            customerName,
+            customerEmail
+        );
+
+        res.json(account);
+
+    } catch (error) {
+
+        res.status(500).json({
+            error: error.response?.data || error.message
+        });
+
+    }
+
+});
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {

@@ -87,9 +87,12 @@ if (savedAccount) {
     fundingBtn.textContent = "Generate Funding Account";
 }
 
-fundingBtn.onclick = function () {
+fundingBtn.onclick = async function () {
 
-    let account = localStorage.getItem("novapayAccountNumber");
+    localStorage.setItem(
+    "novapayAccountNumber",
+    data.responseBody.accountReference
+);
 
     // If account already exists, copy it
     if (account) {
@@ -99,14 +102,23 @@ fundingBtn.onclick = function () {
     }
 
     // Generate account only once
-    account = Math.floor(
-        1000000000 + Math.random() * 9000000000
-    ).toString();
+    const response = await fetch("/create-account", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+    customerName: "NovaPay User",
+    customerEmail: "user@novapay.com"
+})
+});
+
+const data = await response.json();
 
     localStorage.setItem("novapayAccountNumber", account);
 
-    accountNumber.textContent = account;
-    fundingBtn.textContent = "Copy Account Number";
+    accountNumber.textContent = data.responseBody.accountNumber;
+    fundingBtn.textContent = "Copy Account Number";alert("Funding account generated successfully!");
 
     alert("Funding Account Generated!");
 };
