@@ -1,7 +1,12 @@
-import { auth } from "./firebase.js";
+import { auth, db } from "./firebase.js";
 import {
-  createUserWithEmailAndPassword
+createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+import {
+doc,
+setDoc
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 const fullName = document.getElementById("fullName");
 const phoneNumber = document.getElementById("phoneNumber");
@@ -39,8 +44,24 @@ createAccountBtn.addEventListener("click", async () => {
             fullName: fullName.value,
             phoneNumber: phoneNumber.value,
             email: email.value,
-            balance: 65000
+            balance: 0
         })); 
+        await setDoc(doc(db, "users", userCredential.user.uid), {
+    uid: userCredential.user.uid,
+    fullName: fullName.value.trim(),
+    phoneNumber: phoneNumber.value.trim(),
+    email: email.value.trim(),
+
+    walletBalance: 0,
+    reservedAccount: null,
+    accountName: "",
+    accountNumber: "",
+    bankName: "",
+
+    transactions: [],
+
+    createdAt: new Date().toISOString()
+});
                 alert("Account created successfully!");
 
         window.location.href = "dashboard.html";
