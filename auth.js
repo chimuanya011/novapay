@@ -16,16 +16,16 @@ import {
 // PAGE DETECTION
 // ===============================
 
-const registerForm = document.getElementById("registerForm");
+const createAccountBtn = document.getElementById("createAccountBtn");
 const loginForm = document.getElementById("loginForm");
 
 // ===============================
 // REGISTER USER
 // ===============================
 
-if (registerForm) {
+if (createAccountBtn) {
 
-    registerForm.addEventListener("submit", async (e) => {
+    createAccountBtn.addEventListener("click", async () => {
 
         e.preventDefault();
 
