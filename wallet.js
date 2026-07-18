@@ -1,94 +1,83 @@
-// NovaPay Wallet Engine V1
+import { auth, db } from "./firebase.js";
 
-const Wallet = {
+import {
+    doc,
+    getDoc,
+    updateDoc
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
-    getBalance() {
+import {
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+// ======================================
+// LOAD USER WALLET
+// ======================================
 
-        return Number(localStorage.getItem("novapayBalance")) || 0;
+onAuthStateChanged(auth, async (user) => {
 
-    },
+    if (!user) {
 
-    setBalance(amount) {
+        window.location.href = "login.html";
 
-        localStorage.setItem("novapayBalance", amount);
-
-    },
-deposit(amount, description = "Wallet Funding") {
-
-    const current = this.getBalance();
-
-    const total = current + Number(amount);
-
-    this.setBalance(total);
-
-    this.addTransaction(
-        "Credit",
-        amount,
-        description
-    );
-
-    return total;
-
-},
-    
-
-    withdraw(amount, description = "Wallet Debit") {
-
-    const current = this.getBalance();
-
-    if (current < Number(amount)) {
-
-        return false;
+        return;
 
     }
 
-    const total = current - Number(amount);
+    try {
 
-    this.setBalance(total);
+        const userRef = doc(db, "users", user.uid);
 
-    this.addTransaction(
-        "Debit",
-        amount,
-        description
-    );
+        const userSnap = await getDoc(userRef);
 
-    return total;
+        if (!userSnap.exists()) {
+
+            alert("Wallet not found.");
+
+            return;
+
+        }
+
+        const userData = userSnap.data();
+
+        const balanceElement =
+            document.getElementById("walletBalance");
+
+        if (balanceElement) {
+
+            balanceElement.textContent =
+                "₦" + Number(userData.walletBalance).toLocaleString();
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Failed to load wallet.");
+
+    }
+
+});
+// ======================================
+// UPDATE WALLET
+// ======================================
+
+export async function updateWallet(userId, newBalance) {
+
+    try {
+
+        const userRef = doc(db, "users", userId);
+
+        await updateDoc(userRef, {
+
+            walletBalance: newBalance
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
 
 }
-
-}; 
-// Transaction History Engine
-
-Wallet.addTransaction = function(type, amount, description) {
-
-    const transactions =
-        JSON.parse(localStorage.getItem("novapayTransactions")) || [];
-
-    transactions.unshift({
-
-        id: Date.now(),
-
-        type: type,
-
-        amount: Number(amount),
-
-        description: description,
-
-        date: new Date().toLocaleString()
-
-    });
-
-    localStorage.setItem(
-        "novapayTransactions",
-        JSON.stringify(transactions)
-    );
-
-};
-
-Wallet.getTransactions = function() {
-
-    return JSON.parse(
-        localStorage.getItem("novapayTransactions")
-    ) || [];
-
-};
