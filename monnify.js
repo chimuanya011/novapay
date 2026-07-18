@@ -1,32 +1,32 @@
 const axios = require("axios");
-require("dotenv").config(); 
+require("dotenv").config();
 
 async function authenticate() {
-
-    const auth = Buffer.from(
-        process.env.MONNIFY_API_KEY + ":" + process.env.MONNIFY_SECRET_KEY
+    const credentials = Buffer.from(
+        `${process.env.MONNIFY_API_KEY}:${process.env.MONNIFY_SECRET_KEY}`
     ).toString("base64");
 
-    const response = await axios.post(
-        process.env.MONNIFY_BASE_URL + "/api/v1/auth/login",
-        {},
-        {
-            headers: {
-                Authorization: "Basic " + auth
-            }
+    const response = await axios({
+        method: "post",
+        url: `${process.env.MONNIFY_BASE_URL}/api/v1/auth/login`,
+        headers: {
+            Authorization: `Basic ${credentials}`
         }
-    );
+    });
 
     return response.data.responseBody.accessToken;
-
-} 
-async function createReservedAccount(customerName, customerEmail) {
+} async function createReservedAccount(customerName, customerEmail) {
 
     const accessToken = await authenticate();
 
-    const response = await axios.post(
-        process.env.MONNIFY_BASE_URL + "/api/v2/bank-transfer/reserved-accounts",
-        {
+    const response = await axios({
+        method: "post",
+        url: `${process.env.MONNIFY_BASE_URL}/api/v2/bank-transfer/reserved-accounts`,
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json"
+        },
+        data: {
             accountReference: "NOVA-" + Date.now(),
             accountName: customerName,
             currencyCode: "NGN",
@@ -34,16 +34,10 @@ async function createReservedAccount(customerName, customerEmail) {
             customerName: customerName,
             customerEmail: customerEmail,
             getAllAvailableBanks: true
-        },
-        {
-            headers: {
-                Authorization: "Bearer " + accessToken
-            }
         }
-    );
+    });
 
     return response.data;
-
 } 
 module.exports = {
     authenticate,
