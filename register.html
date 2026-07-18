@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -7,112 +8,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NovaPay - Create Account</title>
+<title>Create NovaPay Account</title>
 
 <link rel="stylesheet" href="style.css">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
-background:#f5f7fb;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:20px;
-}
-
-.register-container{
-width:100%;
-max-width:430px;
-}
-
-.register-card{
-background:#ffffff;
-padding:35px 25px;
-border-radius:22px;
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-}
-
-.logo{
-width:75px;
-height:75px;
-margin:auto;
-margin-bottom:20px;
-border-radius:50%;
-background:#00b16a;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#fff;
-font-size:34px;
-font-weight:bold;
-}
-
-h2{
-text-align:center;
-margin-bottom:10px;
-color:#111;
-}
-
-.subtitle{
-text-align:center;
-color:#666;
-margin-bottom:30px;
-font-size:15px;
-} input{
-width:100%;
-padding:15px;
-margin-bottom:15px;
-border:1px solid #dcdcdc;
-border-radius:12px;
-font-size:16px;
-outline:none;
-transition:.3s;
-}
-
-input:focus{
-border-color:#00b16a;
-box-shadow:0 0 0 3px rgba(0,177,106,.15);
-}
-
-button{
-width:100%;
-padding:15px;
-border:none;
-border-radius:12px;
-background:#00b16a;
-color:#fff;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-background:#00995b;
-}
-
-.register-link{
-text-align:center;
-margin-top:20px;
-font-size:15px;
-}
-
-.register-link a{
-color:#00b16a;
-font-weight:bold;
-text-decoration:none;
-}
-
-</style>
 
 </head>
 
@@ -120,58 +18,60 @@ text-decoration:none;
 
 <div class="register-container">
 
-<div class="register-card">
+<h1>Create Account</h1>
 
-<div class="logo">N</div>
-
-<h2>Create Account</h2>
-
-<p class="subtitle">
-Create your NovaPay account
-</p> <input
-type="text"
-id="fullName"
-placeholder="Full Name">
+<p>Create your NovaPay account to continue.</p> 
+<form id="registerForm">
 
 <input
 type="text"
-id="phoneNumber"
-placeholder="Phone Number">
+id="fullName"
+placeholder="Full Name"
+required>
 
 <input
 type="email"
 id="email"
-placeholder="Email Address">
+placeholder="Email Address"
+required>
+
+<input
+type="tel"
+id="phoneNumber"
+placeholder="Phone Number"
+required>
 
 <input
 type="password"
 id="password"
-placeholder="Create Password">
+placeholder="Password"
+required>
 
 <input
 type="password"
 id="confirmPassword"
-placeholder="Confirm Password">
+placeholder="Confirm Password"
+required>
 
-<button id="createAccountBtn">
+<button
+type="submit"
+id="createAccountBtn">
+
 Create Account
+
 </button>
 
+</form> 
 <div class="register-link">
 
 Already have an account?
 
-<a href="login.html">
-
-Login
-
-</a>
+<a href="login.html">Login</a>
 
 </div>
 
 </div>
 
-</div> 
 <script type="module" src="auth.js"></script>
 
 </body>
