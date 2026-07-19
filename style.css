@@ -2,579 +2,441 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+font-family:"Inter",sans-serif;
 }
 
 body{
-height:100vh;
-background:linear-gradient(135deg,#081F5C,#0A2A7A,#123EA8);
-display:flex;
-justify-content:center;
-align-items:center;
+
+background:#F5F7FB;
+
+color:#111827;
+
+overflow-x:hidden;
+
 }
 
-.splash{
+.navbar{
+
 width:100%;
-max-width:420px;
-text-align:center;
-padding:40px 25px;
-}
 
-.logo{
-width:120px;
-height:120px;
-margin:0 auto 35px;
-border-radius:50%;
-background:#18C37E;
-color:white;
+height:80px;
+
+padding:0 8%;
+
 display:flex;
-justify-content:center;
-align-items:center;
-font-size:58px;
-font-weight:bold;
-box-shadow:0 20px 40px rgba(0,0,0,.25);
-}
 
-h1{
-color:white;
-font-size:46px;
-margin-bottom:12px;
-}
-
-p{
-color:#d8e4ff;
-font-size:18px;
-margin-bottom:45px;
-}
-
-button{
-width:100%;
-height:58px;
-border:none;
-border-radius:15px;
-background:#18C37E;
-color:white;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-transform:translateY(-2px);
-box-shadow:0 10px 25px rgba(24,195,126,.35);
-}
-.login-container{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
-background:linear-gradient(135deg,#081F5C,#0A2A7A,#123EA8);
-}
-
-.login-card{
-background:white;
-width:100%;
-max-width:420px;
-padding:35px;
-border-radius:22px;
-box-shadow:0 20px 40px rgba(0,0,0,.20);
-}
-
-.small-logo{
-width:70px;
-height:70px;
-background:#18C37E;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-font-size:32px;
-font-weight:bold;
-margin:0 auto 20px;
-}
-
-.login-card h2{
-text-align:center;
-margin-bottom:10px;
-color:#081F5C;
-}
-
-.login-card p{
-text-align:center;
-color:#666;
-margin-bottom:25px;
-}
-
-.login-card input{
-width:100%;
-padding:16px;
-margin-bottom:18px;
-border:1px solid #ddd;
-border-radius:12px;
-font-size:16px;
-}
-
-.options{
-display:flex;
 justify-content:space-between;
+
 align-items:center;
-margin-bottom:25px;
-font-size:14px;
+
+background:#FFFFFF;
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+box-shadow:0 2px 20px rgba(0,0,0,.05);
+
 }
 
-.options a{
-text-decoration:none;
-color:#18C37E;
-font-weight:bold;
-}
+.logo h2{
 
-.login-card button{
-width:100%;
-padding:16px;
-background:#18C37E;
-border:none;
-border-radius:12px;
-color:white;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.register-link{
-text-align:center;
-margin-top:25px;
-font-size:15px;
-}
-
-.register-link a{
-color:#18C37E;
-font-weight:bold;
-text-decoration:none;
-} .password-box{
-    position:relative;
-}
-
-.password-box input{
-    padding-right:50px;
-}
-
-.password-box span{
-    position:absolute;
-    right:15px;
-    top:50%;
-    transform:translateY(-50%);
-    cursor:pointer;
-}
-
-.options{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:25px;
-    font-size:14px;
-}
-
-.options label{
-    color:#555;
-}
-
-.options a{
-    color:#18C37E;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.divider{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin:25px 0;
-    color:#999;
-}
-
-.divider span{
-    padding:0 15px;
-}
-
-.create-btn{
-    background:white !important;
-    color:#18C37E !important;
-    border:2px solid #18C37E !important;
-}
-
-.create-btn:hover{
-    background:#18C37E !important;
-    color:white !important;
-} .login-card input::placeholder{
-color:#999;
-} .otp-box{
-display:flex;
-justify-content:space-between;
-gap:8px;
-margin-bottom:25px;
-}
-
-.otp-box input{
-width:45px;
-height:50px;
-text-align:center;
-font-size:22px;
-font-weight:bold;
-border:1px solid #ddd;
-border-radius:10px;
-} .otp-box input{
-background:white;
-color:#081F5C;
-border:2px solid #ddd;
-outline:none;
-}
-
-.otp-box input:focus{
-border-color:#18C37E;
-box-shadow:0 0 8px rgba(24,195,126,.25);
-} .dashboard{
-min-height:100vh;
-padding:25px;
-background:#f5f8ff;
-}
-
-.top-section{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:25px;
-}
-
-.top-section h2{
-color:#081F5C;
-font-size:24px;
-margin-bottom:5px;
-}
-
-.top-section p{
-color:#666;
-font-size:14px;
-margin:0;
-}
-
-.balance-card{
-background:linear-gradient(135deg,#081F5C,#123EA8);
-padding:25px;
-border-radius:22px;
-color:white;
-margin-bottom:30px;
-box-shadow:0 15px 35px rgba(0,0,0,.15);
-}
-
-.balance-card p{
-color:#dbe7ff;
-margin-bottom:10px;
-}
-
-.balance-card h1{
-font-size:36px;
-margin-bottom:25px;
-}
-
-.balance-card button{
-background:#18C37E;
-height:50px;
-width:160px;
-}
-
-
-.dashboard h3{
-color:#081F5C;
-margin:25px 0 15px;
-}
-
-.services{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-}
-
-.service-box{
-background:white;
-height:120px;
-border-radius:18px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-.service-box span{
-font-size:32px;
-margin-bottom:10px;
-}
-
-.service-box p{
-color:#081F5C;
-font-weight:bold;
-margin:0;
-}
-
-.transaction{
-background:white;
-padding:20px;
-border-radius:15px;
-color:#777;
-text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,.05);
-} .wallet-info{
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-margin-bottom:20px;
-}
-
-.wallet-info h3{
-color:#081F5C;
-margin-bottom:15px;
-}
-
-.wallet-detail{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px 0;
-border-bottom:1px solid #eee;
-}
-
-.wallet-detail:last-child{
-border-bottom:none;
-}
-
-.wallet-detail span{
-color:#666;
-}
-
-.copy-btn{
-margin-top:20px;
-background:#18C37E;
-color:white;
-border:none;
-padding:14px;
-border-radius:12px;
-width:100%;
-font-weight:bold;
-} .input-field{
-width:100%;
-padding:15px;
-margin-top:10px;
-border:1px solid #ddd;
-border-radius:12px;
-font-size:16px;
-background:white;
-} /* ==========================
-   DASHBOARD V2
-========================== */
-
-.dashboard{
-max-width:430px;
-margin:20px auto;
-padding:20px;
-}
-
-.top-bar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:25px;
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:12px;
-}
-
-.brand-logo{
-width:50px;
-height:50px;
-background:#18C37E;
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:14px;
-font-size:24px;
-font-weight:bold;
-}
-
-.brand h2{
-font-size:24px;
-font-weight:600;
-color:#111;
-margin:0;
-}
-
-.brand p{
-font-size:14px;
-color:#666;
-margin-top:3px;
-}
-
-.wallet-card{
-background:#111;
-color:#fff;
-padding:25px;
-border-radius:22px;
-margin-bottom:25px;
-}
-
-.wallet-title{
-font-size:14px;
-color:#bbb;
-margin-bottom:8px;
-}
-
-.wallet-balance{
-font-size:34px;
-font-weight:600;
-margin-bottom:20px;
-}
-
-.wallet-buttons{
-display:flex;
-gap:12px;
-}
-
-.primary-btn{
-flex:1;
-background:#18C37E;
-color:#fff;
-padding:12px;
-text-align:center;
-border-radius:12px;
-text-decoration:none;
-font-size:15px;
-font-weight:600;
-}
-
-.secondary-btn{
-flex:1;
-background:#fff;
-color:#111;
-padding:12px;
-text-align:center;
-border-radius:12px;
-text-decoration:none;
-font-size:15px;
-font-weight:600;
-} .quick-services{
-margin-bottom:25px;
-}
-
-.quick-services h3,
-.transactions h3,
-.support h3{
-font-size:18px;
-font-weight:600;
-margin-bottom:15px;
-color:#111;
-}
-
-.service-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-}
-
-.service-box{
-background:#fff;
-border-radius:18px;
-padding:18px 10px;
-text-align:center;
-text-decoration:none;
-color:#111;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-transition:0.3s;
-font-size:28px;
-}
-
-.service-box:hover{
-transform:translateY(-4px);
-border:1px solid #18C37E;
-}
-
-.service-box span{
-display:block;
-margin-top:10px;
-font-size:14px;
-font-weight:500;
-}
-
-.empty-card{
-background:#fff;
-padding:20px;
-border-radius:18px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-text-align:center;
-}
-
-.empty-card p{
-font-size:16px;
-font-weight:500;
-margin-bottom:8px;
-}
-
-.empty-card small{
-color:#777;
-}
-
-.support{
-margin-top:25px;
-background:#fff;
-padding:20px;
-border-radius:18px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-text-align:center;
-}
-
-.support p{
-font-size:14px;
-color:#666;
-margin-bottom:18px;
-}
-
-.support-btn{
-display:inline-block;
-background:#18C37E;
-color:#fff;
-text-decoration:none;
-padding:12px 24px;
-border-radius:12px;
-font-size:15px;
-font-weight:600;
-}
-
-.support-btn:hover{
-background:#13a96d;
-}
-
-@media(max-width:480px){
-
-.dashboard{
-padding:15px;
-}
-
-.wallet-balance{
 font-size:30px;
+
+font-weight:800;
+
+color:#2563EB;
+
 }
 
-.service-grid{
+nav{
+
+display:flex;
+
+gap:35px;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:#374151;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#2563EB;
+
+}
+
+.navButtons{
+
+display:flex;
+
+gap:15px;
+
+}
+
+.loginBtn{
+
+padding:12px 22px;
+
+background:white;
+
+border:2px solid #2563EB;
+
+border-radius:12px;
+
+font-weight:600;
+
+cursor:pointer;
+
+color:#2563EB;
+
+}
+
+.startBtn{
+
+padding:12px 24px;
+
+background:#2563EB;
+
+border:none;
+
+border-radius:12px;
+
+color:white;
+
+font-weight:700;
+
+cursor:pointer;
+
+}
+
+.hero{
+
+width:100%;
+
+min-height:calc(100vh - 80px);
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:70px 8%;
+
+gap:60px;
+
+}
+
+.heroLeft{
+
+flex:1;
+
+}
+
+.heroRight{
+
+flex:1;
+
+display:flex;
+
+justify-content:center;
+
+} 
+.badge{
+
+display:inline-block;
+
+padding:10px 18px;
+
+background:#E0ECFF;
+
+color:#2563EB;
+
+font-size:14px;
+
+font-weight:700;
+
+border-radius:999px;
+
+margin-bottom:25px;
+
+}
+
+.heroLeft h1{
+
+font-size:58px;
+
+line-height:1.1;
+
+font-weight:800;
+
+margin-bottom:25px;
+
+max-width:620px;
+
+}
+
+.heroLeft p{
+
+font-size:18px;
+
+line-height:1.8;
+
+color:#6B7280;
+
+max-width:560px;
+
+margin-bottom:35px;
+
+}
+
+.heroButtons{
+
+display:flex;
+
+gap:18px;
+
+}
+
+#openAccount{
+
+padding:16px 34px;
+
+background:#2563EB;
+
+color:#FFFFFF;
+
+border:none;
+
+border-radius:14px;
+
+font-size:17px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#loginNow{
+
+padding:16px 34px;
+
+background:#FFFFFF;
+
+border:2px solid #2563EB;
+
+color:#2563EB;
+
+border-radius:14px;
+
+font-size:17px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#openAccount:hover,
+
+#loginNow:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 14px 30px rgba(37,99,235,.18);
+
+}
+
+.phoneMockup{
+
+width:330px;
+
+height:650px;
+
+background:#111827;
+
+border-radius:40px;
+
+padding:18px;
+
+box-shadow:0 30px 70px rgba(0,0,0,.25);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+.phoneScreen{
+
+width:100%;
+
+height:100%;
+
+background:#FFFFFF;
+
+border-radius:28px;
+
+padding:22px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+} 
+.phoneTop{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:10px;
+
+}
+
+.phoneTop h4{
+
+font-size:22px;
+
+font-weight:700;
+
+color:#111827;
+
+}
+
+.walletPreview{
+
+background:linear-gradient(135deg,#2563EB,#3B82F6);
+
+padding:22px;
+
+border-radius:22px;
+
+color:#FFFFFF;
+
+box-shadow:0 12px 30px rgba(37,99,235,.30);
+
+}
+
+.walletPreview p{
+
+font-size:14px;
+
+opacity:.9;
+
+margin-bottom:8px;
+
+}
+
+.walletPreview h2{
+
+font-size:34px;
+
+font-weight:800;
+
+}
+
+.quickPreview{
+
+display:grid;
+
 grid-template-columns:repeat(2,1fr);
+
+gap:14px;
+
 }
 
-.brand h2{
-font-size:20px;
+.previewCard{
+
+background:#F3F6FB;
+
+border-radius:18px;
+
+padding:18px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+font-size:28px;
+
+font-weight:600;
+
+transition:.3s;
+
 }
+
+.previewCard span{
+
+font-size:14px;
+
+color:#374151;
+
+}
+
+.previewCard:hover{
+
+transform:translateY(-3px);
+
+background:#E8F0FF;
+
+}
+
+.recentPreview{
+
+margin-top:auto;
+
+background:#F9FAFB;
+
+padding:18px;
+
+border-radius:18px;
+
+border:1px solid #E5E7EB;
+
+}
+
+.recentPreview h5{
+
+font-size:16px;
+
+margin-bottom:8px;
+
+}
+
+.recentPreview p{
+
+font-size:14px;
+
+color:#6B7280;
 
 }
