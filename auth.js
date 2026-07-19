@@ -12,27 +12,41 @@ import {
     setDoc,
     getDoc
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-// ===============================
-// PAGE DETECTION
-// ===============================
 
-const createAccountBtn = document.getElementById("createAccountBtn");
-const loginForm = document.getElementById("loginForm");
+// =========================
+// REGISTER
+// =========================
 
-// ===============================
-// REGISTER USER
-// ===============================
+const registerForm = document.getElementById("registerForm");
 
-if (createAccountBtn) {
+if (registerForm) {
 
-    createAccountBtn.addEventListener("click", async () => {
+    registerForm.addEventListener("submit", async (e) => {
 
         e.preventDefault();
 
-        const fullName = document.getElementById("fullName").value.trim();
-        const phoneNumber = document.getElementById("phoneNumber").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
+        const fullName =
+            document.getElementById("fullName").value.trim();
+
+        const phoneNumber =
+            document.getElementById("phoneNumber").value.trim();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const password =
+            document.getElementById("password").value;
+
+        const confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+
+            alert("Passwords do not match.");
+
+            return;
+
+        }
 
         try {
 
@@ -44,27 +58,26 @@ if (createAccountBtn) {
                 );
 
             const user = userCredential.user;
-                        await setDoc(doc(db, "users", user.uid), {
+
+            await setDoc(doc(db, "users", user.uid), {
 
                 uid: user.uid,
 
-                fullName: fullName,
+                fullName,
 
-                phoneNumber: phoneNumber,
+                phoneNumber,
 
-                email: email,
+                email,
 
                 walletBalance: 0,
 
-                accountName: "",
-
                 accountNumber: "",
+
+                accountName: "",
 
                 bankName: "",
 
                 reservedAccount: false,
-
-                transactions: [],
 
                 createdAt: new Date().toISOString()
 
@@ -74,7 +87,9 @@ if (createAccountBtn) {
 
             window.location.href = "login.html";
 
-        } catch (error) {
+        }
+
+        catch (error) {
 
             alert(error.message);
 
@@ -82,9 +97,13 @@ if (createAccountBtn) {
 
     });
 
-} // ===============================
-// LOGIN USER
-// ===============================
+}
+
+// =========================
+// LOGIN
+// =========================
+
+const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
 
@@ -92,8 +111,11 @@ if (loginForm) {
 
         e.preventDefault();
 
-        const email = document.getElementById("email").value.trim();
-        const password = document.getElementById("password").value;
+        const email =
+            document.getElementById("email").value.trim();
+
+        const password =
+            document.getElementById("password").value;
 
         try {
 
@@ -109,24 +131,16 @@ if (loginForm) {
             const userDoc =
                 await getDoc(doc(db, "users", user.uid));
 
-            if (!userDoc.exists()) {
-
-                alert("User profile not found.");
-
-                return;
-
-            }
-
-            const userData = userDoc.data();
-
             localStorage.setItem(
                 "novapayUser",
-                JSON.stringify(userData)
+                JSON.stringify(userDoc.data())
             );
 
             window.location.href = "dashboard.html";
 
-        } catch (error) {
+        }
+
+        catch (error) {
 
             alert(error.message);
 
@@ -134,50 +148,48 @@ if (loginForm) {
 
     });
 
-} 
-// ===============================
+}
+
+// =========================
 // LOGOUT
-// ===============================
+// =========================
 
 window.logout = async function () {
 
-    try {
+    await signOut(auth);
 
-        await signOut(auth);
+    localStorage.removeItem("novapayUser");
 
-        localStorage.removeItem("novapayUser");
-
-        window.location.href = "login.html";
-
-    } catch (error) {
-
-        alert(error.message);
-
-    }
+    window.location.href = "login.html";
 
 };
 
-// ===============================
-// AUTH STATE
-// ===============================
+// =========================
+// PROTECTED PAGES
+// =========================
 
 onAuthStateChanged(auth, (user) => {
 
     const protectedPages = [
+
         "dashboard.html",
+
         "wallet.html",
-        "funding.html",
+
         "history.html",
+
         "profile.html",
+
         "settings.html",
-        "notifications.html",
-        "support.html"
+
+        "funding.html"
+
     ];
 
-    const currentPage =
+    const page =
         window.location.pathname.split("/").pop();
 
-    if (protectedPages.includes(currentPage) && !user) {
+    if (protectedPages.includes(page) && !user) {
 
         window.location.href = "login.html";
 
