@@ -55,7 +55,7 @@ async function getAccessToken() {
 // ====================================
 
 app.post("/generate-account", async (req, res) => {
-
+console.log("Generate account endpoint hit");
     try {
 
         const token = await getAccessToken();
