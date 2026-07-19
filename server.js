@@ -24,34 +24,32 @@ const BASE_URL = process.env.MONNIFY_BASE_URL;
 // ============================
 // GET ACCESS TOKEN
 // ============================
-
 async function getAccessToken() {
 
     const auth = Buffer.from(
         `${API_KEY}:${SECRET_KEY}`
     ).toString("base64");
 
+    console.log("API KEY:", API_KEY);
+    console.log("SECRET STARTS:", SECRET_KEY.substring(0,4));
+    console.log("BASE URL:", BASE_URL);
+
     const response = await axios.post(
-
         `${BASE_URL}/api/v1/auth/login`,
-
         {},
-
         {
-
             headers: {
-
                 Authorization: `Basic ${auth}`
-
             }
-
         }
-
     );
 
-    return response.data.responseBody.accessToken;
+    console.log("TOKEN RECEIVED");
 
-} 
+    return response.data.responseBody.accessToken;
+}
+
+
 // ====================================
 // GENERATE RESERVED ACCOUNT
 // ====================================
