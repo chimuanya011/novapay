@@ -1,75 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NovaPay - Wallet</title>
+
+<title>NovaPay Wallet</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="dashboard">
+<div class="wallet-container">
 
-<div class="top-section">
-<div>
-<h2>My Wallet</h2>
-<p>Manage your NovaPay balance</p>
-</div>
+<h1>Wallet</h1>
 
-<div class="small-logo">N</div>
-</div>
+<h2 id="walletBalance">₦0.00</h2>
 
+<div class="wallet-card">
 
-<div class="balance-card">
+<h3>Funding Account</h3>
 
-<p>Available Balance</p>
+<p><strong>Bank Name:</strong></p>
 
-<h1>₦0.00</h1>
+<p id="bankName">
 
-<button>Add Money</button>
+No Account Generated
 
-</div>
+</p>
 
+<p><strong>Account Number:</strong></p>
 
-<div class="wallet-info">
+<p id="accountNumber">
 
-<h3>Fund Account</h3>
+No Account Generated
 
-<p>Transfer money to your NovaPay account using your bank app.</p>
+</p>
 
-<div class="wallet-detail">
-<span>Bank Name</span>
-<b>NovaPay Bank</b>
-</div>
+<p><strong>Account Name:</strong></p>
 
-<div class="wallet-detail">
-<span>Account Name</span>
-<b>NovaPay User</b>
-</div>
+<p id="accountName">
 
-<div class="wallet-detail">
-<span>Account Number</span>
-<b>1234567890</b>
-</div>
+No Account Generated
 
-<button class="copy-btn">
-Copy Account Number
+</p>
+
+<button id="generateAccountBtn">
+
+Generate Account
+
 </button>
 
 </div>
 
-
-<h3>Recent Transactions</h3>
-
-<div class="transaction">
-
-<p>No transactions yet</p>
-
 </div>
 
-
-</div>
+<script type="module" src="wallet.js"></script>
 
 </body>
+
 </html>

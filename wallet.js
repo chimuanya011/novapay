@@ -9,75 +9,112 @@ import {
 import {
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-// ======================================
-// LOAD USER WALLET
-// ======================================
+
+const balance = document.getElementById("walletBalance");
+const bankName = document.getElementById("bankName");
+const accountNumber = document.getElementById("accountNumber");
+const accountName = document.getElementById("accountName");
+const generateBtn = document.getElementById("generateAccountBtn");
+
+let currentUser = null;
+
+// =========================
+// LOAD WALLET
+// =========================
 
 onAuthStateChanged(auth, async (user) => {
 
     if (!user) {
 
         window.location.href = "login.html";
-
         return;
 
     }
 
-    try {
+    currentUser = user;
 
-        const userRef = doc(db, "users", user.uid);
+    const userRef = doc(db, "users", user.uid);
 
-        const userSnap = await getDoc(userRef);
+    const userSnap = await getDoc(userRef);
 
-        if (!userSnap.exists()) {
+    if (!userSnap.exists()) return;
 
-            alert("Wallet not found.");
+    const data = userSnap.data();
 
-            return;
+    balance.textContent =
+        "₦" + Number(data.walletBalance).toLocaleString();
 
-        }
+    if (data.reservedAccount) {
 
-        const userData = userSnap.data();
+        bankName.textContent = data.bankName;
 
-        const balanceElement =
-            document.getElementById("walletBalance");
+        accountNumber.textContent = data.accountNumber;
 
-        if (balanceElement) {
+        accountName.textContent = data.accountName;
 
-            balanceElement.textContent =
-                "₦" + Number(userData.walletBalance).toLocaleString();
-
-        }
-
-    } catch (error) {
-
-        console.error(error);
-
-        alert("Failed to load wallet.");
+        generateBtn.style.display = "none";
 
     }
 
 });
-// ======================================
-// UPDATE WALLET
-// ======================================
 
-export async function updateWallet(userId, newBalance) {
+// =========================
+// GENERATE ACCOUNT
+// =========================
+
+generateBtn.addEventListener("click", async () => {
 
     try {
 
-        const userRef = doc(db, "users", userId);
+        const userRef = doc(db, "users", currentUser.uid);
+
+        const userSnap = await getDoc(userRef);
+
+        const userData = userSnap.data();
+
+        const response = await fetch(
+    "https://novapay-backend-popa.onrender.com/generate-account",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    fullName: userData.fullName,
+                    email: userData.email
+                })
+            }
+        );
+
+        const result = await response.json();
+
+        const account =
+            result.responseBody.accounts[0];
 
         await updateDoc(userRef, {
 
-            walletBalance: newBalance
+            reservedAccount: true,
+
+            bankName: account.bankName,
+
+            accountNumber: account.accountNumber,
+
+            accountName: account.accountName
 
         });
 
-    } catch (error) {
+        alert("Account Generated Successfully");
 
-        console.error(error);
+        location.reload();
 
     }
 
-}
+    catch (error) {
+
+        console.error(error);
+
+        alert("Unable to generate account.");
+
+    }
+
+});

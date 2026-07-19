@@ -1,67 +1,141 @@
-const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv");
-const axios = require("axios");
-const { createReservedAccount } = require("./monnify");
+import express from "express";
+import cors from "cors";
+import axios from "axios";
+import dotenv from "dotenv";
+
 dotenv.config();
 
 const app = express();
 
 app.use(cors());
-app.use(express.json()); 
-app.get("/", (req, res) => {
-    res.send("NovaPay Backend is Running ✅");
-});
 
-app.get("/test-monnify", async (req, res) => {
+app.use(express.json());
+
+const PORT = process.env.PORT || 3000;
+
+const API_KEY = process.env.MONNIFY_API_KEY;
+
+const SECRET_KEY = process.env.MONNIFY_SECRET_KEY;
+
+const CONTRACT_CODE = process.env.MONNIFY_CONTRACT_CODE;
+
+const BASE_URL = process.env.MONNIFY_BASE_URL;
+
+// ============================
+// GET ACCESS TOKEN
+// ============================
+
+async function getAccessToken() {
+
+    const auth = Buffer.from(
+        `${API_KEY}:${SECRET_KEY}`
+    ).toString("base64");
+
+    const response = await axios.post(
+
+        `${BASE_URL}/api/v1/auth/login`,
+
+        {},
+
+        {
+
+            headers: {
+
+                Authorization: `Basic ${auth}`
+
+            }
+
+        }
+
+    );
+
+    return response.data.responseBody.accessToken;
+
+} 
+// ====================================
+// GENERATE RESERVED ACCOUNT
+// ====================================
+
+app.post("/generate-account", async (req, res) => {
+
     try {
-        const auth = Buffer.from(
-            process.env.MONNIFY_API_KEY + ":" + process.env.MONNIFY_SECRET_KEY
-        ).toString("base64");
+
+        const token = await getAccessToken();
+
+        const {
+
+            fullName,
+
+            email
+
+        } = req.body;
 
         const response = await axios.post(
-            process.env.MONNIFY_BASE_URL + "/api/v1/auth/login",
-            {},
+
+            `${BASE_URL}/api/v2/bank-transfer/reserved-accounts`,
+
             {
+
+                accountReference: "NOVA_" + Date.now(),
+
+                accountName: fullName,
+
+                currencyCode: "NGN",
+
+                contractCode: CONTRACT_CODE,
+
+                customerEmail: email,
+
+                customerName: fullName,
+
+                getAllAvailableBanks: false,
+
+                preferredBanks: [
+
+                    "035"
+
+                ]
+
+            },
+
+            {
+
                 headers: {
-                    Authorization: "Basic " + auth,
+
+                    Authorization: `Bearer ${token}`,
+
                     "Content-Type": "application/json"
+
                 }
+
             }
+
         );
 
         res.json(response.data);
 
-    } catch (error) {
-        console.log("MONNIFY ERROR:", error.response?.data);
-        res.status(500).json(error.response?.data || error.message);
     }
-});
 
-app.post("/create-account", async (req, res) => {
+    catch (error) {
 
-    try {
-
-        const { customerName, customerEmail } = req.body;
-
-        const account = await createReservedAccount(
-            customerName,
-            customerEmail
-        );
-
-        res.json(account);
-
-    } catch (error) {
+        console.error(error.response?.data || error.message);
 
         res.status(500).json({
-            error: error.response?.data || error.message
+
+            message: "Unable to generate reserved account."
+
         });
 
     }
 
 });
-const PORT = process.env.PORT || 3000;
+
+// ====================================
+// START SERVER
+// ====================================
 
 app.listen(PORT, () => {
+
     console.log(`NovaPay Server running on port ${PORT}`);
+
 });
