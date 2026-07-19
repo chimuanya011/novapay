@@ -7,143 +7,141 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NovaPay | Payments Made Easy</title>
+<title>NovaPay</title>
 
-<link rel="stylesheet" href="home.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<header class="hero">
+<div class="app">
 
-<div class="container">
+<header class="topHeader">
 
-<div class="logo">
+<div>
 
-<div class="logo-box">
+<h2 id="greeting">Good Evening 👋</h2>
 
+<p id="welcomeText">Welcome back</p>
+
+</div>
+
+<div id="profileLetter" class="profileCircle">
 N
-
-</div>
-
-<h1>NovaPay</h1>
-
-</div>
-
-<h2>
-
-Payments Made Easy
-
-</h2>
-
-<p>
-
-Buy Airtime, Data, Pay Electricity Bills,
-Renew TV Subscription and Manage
-your Wallet from one secure platform.
-
-</p>
-
-<div class="buttons">
-
-<a href="register.html" class="btn-primary">
-
-Create Free Account
-
-</a>
-
-<a href="login.html" class="btn-secondary">
-
-Login
-
-</a>
-
-</div>
-
 </div>
 
 </header>
 
-<section class="services">
+<section class="walletCard">
 
-<div class="container">
+<p class="smallTitle">
+Wallet Balance
+</p>
 
-<h2>
+<h1 id="walletBalance">
+₦0.00
+</h1>
 
-Our Services
+<div class="walletButtons">
 
+<button id="addMoneyBtn">
+
+Add Money
+
+</button>
+
+<button id="transferBtn">
+
+Transfer
+
+</button>
+
+</div>
+
+</section> 
+<section class="quickServices">
+
+<h2 class="sectionTitle">
+Quick Services
 </h2>
 
-<div class="service-grid">
+<div class="servicesGrid">
 
-<div class="service-card">
+<button class="serviceCard" id="airtimeCard">
 
-📱
+<div class="serviceIcon">📱</div>
 
-<h3>Airtime</h3>
+<span>Airtime</span>
 
-<p>
+</button>
 
-Recharge all Nigerian networks instantly.
+<button class="serviceCard" id="dataCard">
 
-</p>
+<div class="serviceIcon">🌐</div>
 
-</div>
+<span>Data</span>
 
-<div class="service-card">
+</button>
 
-🌐
+<button class="serviceCard" id="electricityCard">
 
-<h3>Data</h3>
+<div class="serviceIcon">⚡</div>
 
-<p>
+<span>Electricity</span>
 
-Affordable data bundles anytime.
+</button>
 
-</p>
+<button class="serviceCard" id="cableCard">
 
-</div> <div class="service-card">
+<div class="serviceIcon">📺</div>
 
-💡
+<span>Cable TV</span>
 
-<h3>Electricity</h3>
+</button>
 
-<p>
+<button class="serviceCard" id="historyCard">
 
-Pay electricity bills quickly and securely.
+<div class="serviceIcon">🧾</div>
 
-</p>
+<span>History</span>
 
-</div>
+</button>
 
-<div class="service-card">
+<button class="serviceCard" id="profileCard">
 
-📺
+<div class="serviceIcon">👤</div>
 
-<h3>TV</h3>
+<span>Profile</span>
 
-<p>
-
-Renew your TV subscriptions with ease.
-
-</p>
+</button>
 
 </div>
 
-<div class="service-card">
+</section> 
+<section class="recentActivity">
 
-💳
+<h2 class="sectionTitle">
+Recent Activity
+</h2>
 
-<h3>Wallet</h3>
+<div class="activityCard">
 
-<p>
-
-Fund and manage your NovaPay wallet.
-
-</p>
-
+<div class="activityIcon">
+🧾
 </div>
+
+<div class="activityInfo">
+
+<h3>No Transactions Yet</h3>
+
+<p>Your recent wallet activities will appear here.</p>
 
 </div>
 
@@ -151,47 +149,45 @@ Fund and manage your NovaPay wallet.
 
 </section>
 
-<section class="why">
-
-<div class="container">
-
-<h2>
-
-Why Choose NovaPay?
-
-</h2>
-
-<div class="why-grid">
-
-<div>⚡ Fast Transactions</div>
-
-<div>🔒 Secure Payments</div>
-
-<div>🌍 Available 24/7</div>
-
-<div>💚 Simple & Easy to Use</div>
-
 </div>
 
-</div>
+<nav class="bottomNav">
 
-</section>
+<button class="navItem active" id="homeBtn">
 
-<footer>
+<span>🏠</span>
 
-<p>
+<p>Home</p>
 
-© 2026 NovaPay
+</button>
 
-</p>
+<button class="navItem" id="walletBtn">
 
-<p>
+<span>💳</span>
 
-Fast • Secure • Reliable
+<p>Wallet</p>
 
-</p>
+</button>
 
-</footer>
+<button class="navItem" id="transferNavBtn">
+
+<span>🔄</span>
+
+<p>Transfer</p>
+
+</button>
+
+<button class="navItem" id="profileNavBtn">
+
+<span>👤</span>
+
+<p>Profile</p>
+
+</button>
+
+</nav>
+
+<script type="module" src="index.js"></script>
 
 </body>
 
