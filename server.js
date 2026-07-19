@@ -118,15 +118,19 @@ app.post("/generate-account", async (req, res) => {
 
     catch (error) {
 
-        console.error(error.response?.data || error.message);
+    console.log("==================================");
+    console.log("MONNIFY ERROR:");
+    console.log(error.response?.data);
+    console.log(error.message);
+    console.log("==================================");
 
-        res.status(500).json({
+    res.status(500).json({
 
-            message: "Unable to generate reserved account."
+        error: error.response?.data || error.message
 
-        });
+    });
 
-    }
+}
 
 });
 
