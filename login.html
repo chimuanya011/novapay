@@ -7,48 +7,91 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login | NovaPay</title>
+<title>NovaPay Login</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="login.css">
 
 </head>
 
 <body>
 
-<div class="login-container">
+<div class="login-page">
 
-<h1>Welcome Back</h1>
+<div class="login-card">
 
-<p>Login to your NovaPay account.</p>
+<div class="brand">
+
+<h1>
+
+<span class="blue">Nova</span><span class="dark">Pay</span>
+
+</h1>
+
+<p>
+
+Welcome back
+
+</p>
+
+</div>
 
 <form id="loginForm">
 
-<input
-type="email"
-id="email"
-placeholder="Email Address"
-required>
+<div class="input-group">
+
+<label>Email Address</label>
 
 <input
-type="password"
-id="password"
-placeholder="Password"
+
+type="email"
+
+id="email"
+
+placeholder="Enter your email"
+
 required>
+
+</div>
+
+<div class="input-group">
+
+<label>Password</label>
+
+<input
+
+type="password"
+
+id="password"
+
+placeholder="Enter your password"
+
+required>
+
+</div> 
+<div class="forgot-password">
+<a href="#">
+Forgot Password?
+</a>
+</div>
+
+<div id="loginError" class="error-box"></div>
 
 <button
-type="submit">
+type="submit"
+id="loginBtn"
+class="login-btn">
 
 Login
 
 </button>
 
-</form>
+<div class="register-link">
 
 <p>
 
 Don't have an account?
 
-<a href="register.html">
+<a href="registration.html">
 
 Create Account
 
@@ -58,7 +101,13 @@ Create Account
 
 </div>
 
-<script type="module" src="auth.js"></script>
+</form>
+
+</div>
+
+</div>
+
+<script src="login.js"></script>
 
 </body>
 
