@@ -1,56 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Create Account | NovaPay</title>
 
-<link rel="stylesheet" href="style.css">
+<title>Create NovaPay Account</title>
+
+<link rel="stylesheet" href="register.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-<div class="register-container">
+<div class="register-page">
 
-<h1>Create Your NovaPay Account</h1>
+<div class="register-card">
 
-<p>Create your secure fintech account.</p>
+<div class="brand">
+
+<h1>
+
+<span class="blue">Nova</span><span class="dark">Pay</span>
+
+</h1>
+
+<p>
+
+Create your NovaPay account
+
+</p>
+
+</div>
 
 <form id="registerForm">
 
-<input
-type="text"
-id="fullName"
-placeholder="Full Name"
-required>
+<div class="input-group">
+
+<label for="username">
+
+Username
+
+</label>
 
 <input
-type="tel"
-id="phoneNumber"
-placeholder="Phone Number"
+type="text"
+id="username"
+placeholder="Enter your username"
 required>
+
+</div>
+
+<div class="input-group">
+
+<label for="email">
+
+Email Address
+
+</label>
 
 <input
 type="email"
 id="email"
-placeholder="Email Address"
+placeholder="Enter your email"
 required>
+
+</div>
+
+<div class="input-group">
+
+<label for="phone">
+
+Phone Number
+
+</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="+234..."
+required>
+
+</div>
+
+<div class="input-group">
+
+<label for="password">
+
+Password
+
+</label>
 
 <input
 type="password"
 id="password"
-placeholder="Password"
+placeholder="Create password"
 required>
+
+</div>
+
+<div class="input-group">
+
+<label for="confirmPassword">
+
+Confirm Password
+
+</label>
 
 <input
 type="password"
 id="confirmPassword"
-placeholder="Confirm Password"
+placeholder="Confirm password"
 required>
 
+</div> 
+<div id="registerError" class="error-message"></div>
+
 <button
-type="submit">
+type="submit"
+id="createAccountBtn"
+class="create-btn">
 
 Create Account
 
@@ -58,22 +132,25 @@ Create Account
 
 </form>
 
-<p>
+<div class="bottom-text">
 
 Already have an account?
 
 <a href="login.html">
 
-Login
+Log in
 
 </a>
 
-</p>
+</div>
 
 </div>
 
+</div>
+
+<script type="module" src="firebase.js"></script>
 <script type="module" src="auth.js"></script>
+<script type="module" src="register.js"></script>
 
 </body>
-
 </html>
