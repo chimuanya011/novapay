@@ -8,34 +8,31 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth
 
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
-// ======================================
-// REPLACE THESE VALUES LATER
-// ======================================
+// ===============================
+// FIREBASE CONFIG
+// ===============================
 
 const firebaseConfig = {
 
-apiKey: "",
+apiKey: "AIzaSyAt7YnxQ5787wKxlui-sUniR0PP_LZXYxw",
 
-authDomain: "",
+authDomain: "novapay-c88fa.firebaseapp.com",
 
-projectId: "",
+projectId: "novapay-c88fa",
 
-storageBucket: "",
+storageBucket: "novapay-c88fa.firebasestorage.app",
 
-messagingSenderId: "",
+messagingSenderId: "194275506659",
 
-appId: ""
+appId: "1:194275506659:web:fcaa1b1e19c559443cc8d6"
 
-}; 
+};
+
 // ===============================
 // INITIALIZE FIREBASE
 // ===============================
 
 const app = initializeApp(firebaseConfig);
-
-// ===============================
-// SERVICES
-// ===============================
 
 const auth = getAuth(app);
 
