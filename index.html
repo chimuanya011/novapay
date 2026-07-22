@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>NovaPay</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -24,145 +18,151 @@
 <header class="navbar">
 
 <div class="logo">
-
-<h2>NovaPay</h2>
-
+<span class="logo-green">Nova</span><span class="logo-dark">Pay</span>
 </div>
 
 <nav>
 
-<a href="#">Home</a>
+<a href="#features">Features</a>
 
-<a href="#">Features</a>
-
-<a href="#">Support</a>
+<a href="#support">Support</a>
 
 </nav>
 
-<div class="navButtons">
-
-<button class="loginBtn">Login</button>
-
-<button class="startBtn">Get Started</button>
-
-</div>
+<a href="register.html" class="nav-btn">
+Get Started
+</a>
 
 </header>
 
 <section class="hero">
 
-<div class="heroLeft">
+<div class="hero-left">
 
-<span class="badge">
+<div class="badge">
 ⚡ Fast • Secure • Affordable
-</span>
+</div>
 
 <h1>
 
-Pay Bills,
-
-Buy Airtime,
-
-Transfer Money
-
-Without Stress.
+Everything You Need
+to Stay Connected.
 
 </h1>
 
 <p>
 
-NovaPay helps you buy airtime, subscribe for data, pay utility bills, transfer money and manage your wallet in one secure app.
+Buy airtime, data, pay utility bills and manage your wallet from one secure place.
 
 </p>
 
-<div class="heroButtons">
+<a href="register.html" class="primary-btn">
 
-<button id="openAccount">
+Get Started
 
-Open Free Account
+</a>
 
-</button>
+<div class="login-text">
 
-<button id="loginNow">
+Already have an account?
 
-Login
+<a href="login.html">
 
-</button>
+Log in
+
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="phone">
+
+<div class="phone-header">
+
+<div class="phone-title">
+
+NovaPay
+
+</div>
+
+<div class="bell">
+
+🔔
 
 </div>
 
 </div>
 
-<div class="heroRight">
+<div class="wallet-card">
 
+<span>
 
-</div>
+Available Balance
 
-</section> 
-<div class="phoneMockup">
+</span>
 
-<div class="phoneScreen">
+<h2>
 
-<div class="phoneTop">
+₦0.00
 
-<h4>NovaPay</h4>
+</h2>
 
-<span>🔔</span>
+</div> 
+<div class="services-grid">
 
-</div>
-
-<div class="walletPreview">
-
-<p>Available Balance</p>
-
-<h2>₦0.00</h2>
-
-</div>
-
-<div class="quickPreview">
-
-<div class="previewCard">
-
-📱
-
+<div class="service-card">
+<div class="service-icon">📱</div>
 <span>Airtime</span>
-
 </div>
 
-<div class="previewCard">
-
-🌐
-
+<div class="service-card">
+<div class="service-icon">🌐</div>
 <span>Data</span>
-
 </div>
 
-<div class="previewCard">
-
-⚡
-
+<div class="service-card">
+<div class="service-icon">⚡</div>
 <span>Bills</span>
-
 </div>
 
-<div class="previewCard">
-
-💸
-
-<span>Transfer</span>
-
+<div class="service-card">
+<div class="service-icon">💳</div>
+<span>Wallet</span>
 </div>
 
 </div>
 
-<div class="recentPreview">
+<div class="activity-card">
 
-<h5>Recent Activity</h5>
+<h3>
 
-<p>No transactions yet</p>
+Recent Activity
+
+</h3>
+
+<p>
+
+No transactions yet
+
+</p>
 
 </div>
 
 </div>
 
 </div>
+
+</section>
+
+<section id="features"></section>
+
+<footer id="support"></footer>
+
+<script type="module" src="index.js"></script>
+
+</body>
+
+</html>
