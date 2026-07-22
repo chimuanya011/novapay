@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,6 @@
 <title>Create Account | NovaPay</title>
 
 <link rel="stylesheet" href="register.css">
-
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
@@ -30,111 +27,93 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <form id="registerForm">
 
 <div class="input-group">
-
-<label>Username</label>
-
+<label for="username">Full Name</label>
 <input
 type="text"
 id="username"
-placeholder="Enter username"
-required>
-
+placeholder="Enter your full name"
+required
+>
 </div>
 
 <div class="input-group">
-
-<label>Email Address</label>
-
+<label for="email">Email Address</label>
 <input
 type="email"
 id="email"
-placeholder="Enter email"
-required>
-
+placeholder="Enter your email"
+required
+>
 </div>
 
 <div class="input-group">
-
-<label>Phone Number</label>
-
+<label for="phone">Phone Number</label>
 <input
 type="tel"
 id="phone"
-placeholder="Enter phone number"
-required>
-
+placeholder="Enter your phone number"
+required
+>
 </div>
 
 <div class="input-group">
-
-<label>Password</label>
+<label for="password">Password</label>
 
 <div class="password-box">
 
 <input
 type="password"
 id="password"
-placeholder="Create password"
-required>
+placeholder="Create a password"
+required
+>
 
 <button
 type="button"
 class="togglePassword"
-data-target="password">
-
-<i class="fa-solid fa-eye"></i>
-
+id="togglePassword"
+>
+👁
 </button>
 
 </div>
-
-</div>
-
+</div> 
 <div class="input-group">
-
-<label>Confirm Password</label>
+<label for="confirmPassword">Confirm Password</label>
 
 <div class="password-box">
 
 <input
 type="password"
 id="confirmPassword"
-placeholder="Confirm password"
-required>
+placeholder="Confirm your password"
+required
+>
 
 <button
 type="button"
 class="togglePassword"
-data-target="confirmPassword">
-
-<i class="fa-solid fa-eye"></i>
-
+id="toggleConfirmPassword"
+>
+👁
 </button>
 
 </div>
-
 </div>
 
 <button
 type="submit"
+class="register-btn"
 id="registerBtn"
-class="register-btn">
-
+>
 Create Account
-
 </button>
 
 <p class="login-link">
-
 Already have an account?
+<a href="login.html">Login</a>
+</p>
 
-<a href="login.html">
-
-Login
-
-</a>
-
-</p> 
 </form>
 
 </div>
