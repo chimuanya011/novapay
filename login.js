@@ -1,67 +1,55 @@
-import { loginNovaPayUser } from "./auth.js";
+import { loginUser } from "./auth.js";
 
 const form = document.getElementById("loginForm");
 const loginBtn = document.getElementById("loginBtn");
 const errorBox = document.getElementById("loginError");
 
 function showError(message){
-
-errorBox.style.display="block";
-errorBox.textContent=message;
-
+    errorBox.style.display = "block";
+    errorBox.textContent = message;
 }
 
 function hideError(){
-
-errorBox.style.display="none";
-errorBox.textContent="";
-
+    errorBox.style.display = "none";
+    errorBox.textContent = "";
 }
 
-form.addEventListener("submit",async(e)=>{
+form.addEventListener("submit", async (e)=>{
 
-e.preventDefault();
+    e.preventDefault();
 
-hideError();
+    hideError();
 
-const identifier=document.getElementById("email").value.trim();
+    const email = document.getElementById("email").value.trim();
 
-const password=document.getElementById("password").value;
+    const password = document.getElementById("password").value;
 
-if(identifier===""){
+    if(email===""){
+        return showError("Enter your email address.");
+    }
 
-showError("Enter your email or phone number.");
+    if(password===""){
+        return showError("Enter your password.");
+    }
 
-return;
+    loginBtn.disabled = true;
 
-}
+    loginBtn.textContent = "Signing In...";
 
-if(password.length<8){
+    try{
 
-showError("Password must be at least 8 characters.");
+        await loginUser(email,password);
 
-return;
+        window.location.href = "dashboard.html";
 
-}
+    }catch(error){
 
-loginBtn.disabled=true;
+        showError(error.message);
 
-loginBtn.textContent="Signing In...";
+        loginBtn.disabled = false;
 
-try{
+        loginBtn.textContent = "Login";
 
-await loginNovaPayUser(identifier,password);
-
-window.location.href="dashboard.html";
-
-}catch(error){
-
-showError(error.message);
-
-}
-
-loginBtn.disabled=false;
-
-loginBtn.textContent="Login";
+    }
 
 });

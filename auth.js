@@ -14,10 +14,7 @@ import {
 doc,
 setDoc,
 getDoc,
-collection,
-query,
-where,
-getDocs
+serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
@@ -25,7 +22,7 @@ getDocs
 // CREATE ACCOUNT
 // =========================================
 
-export async function createNovaPayAccount(userData){
+export async function registerUser(userData){
 
 const userCredential = await createUserWithEmailAndPassword(
 
@@ -49,48 +46,26 @@ email:userData.email,
 
 phone:userData.phone,
 
-emailVerified:false,
+walletBalance:0,
 
-phoneVerified:false,
+rewardBalance:0,
 
-accountStatus:"pending",
+accountStatus:"active",
 
-createdAt:new Date().toISOString()
+createdAt:serverTimestamp()
 
 });
 
 return user;
 
-} 
-// =========================================
-// LOGIN USING EMAIL OR PHONE
-// =========================================
-
-export async function loginNovaPayUser(identifier,password){
-
-let email = identifier;
-
-if(!identifier.includes("@")){
-
-const q = query(
-
-collection(db,"users"),
-
-where("phone","==",identifier)
-
-);
-
-const result = await getDocs(q);
-
-if(result.empty){
-
-throw new Error("Phone number not found.");
-
 }
 
-email = result.docs[0].data().email;
 
-}
+// =========================================
+// LOGIN
+// =========================================
+
+export async function loginUser(email,password){
 
 const userCredential = await signInWithEmailAndPassword(
 
@@ -102,23 +77,16 @@ password
 
 );
 
-const profile = await getUserProfile(userCredential.user.uid);
-
-if(profile && !profile.phoneVerified){
-
-throw new Error("Please verify your phone number before logging in.");
-
-}
-
 return userCredential.user;
 
 }
 
+
 // =========================================
-// GET USER PROFILE
+// GET PROFILE
 // =========================================
 
-export async function getUserProfile(uid){
+export async function getUser(uid){
 
 const snapshot = await getDoc(doc(db,"users",uid));
 
@@ -132,11 +100,12 @@ return null;
 
 }
 
+
 // =========================================
 // LOGOUT
 // =========================================
 
-export async function logoutNovaPay(){
+export async function logoutUser(){
 
 await signOut(auth);
 

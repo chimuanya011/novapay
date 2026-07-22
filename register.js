@@ -1,109 +1,72 @@
-import { createNovaPayAccount } from "./auth.js";
+import { registerUser } from "./auth.js";
 
 const form = document.getElementById("registerForm");
 const button = document.getElementById("createAccountBtn");
 const errorBox = document.getElementById("registerError");
 
 function showError(message){
-
-errorBox.style.display="block";
-errorBox.textContent=message;
-
+    errorBox.style.display = "block";
+    errorBox.textContent = message;
 }
 
 function hideError(){
-
-errorBox.style.display="none";
-errorBox.textContent="";
-
+    errorBox.style.display = "none";
+    errorBox.textContent = "";
 }
 
-form.addEventListener("submit",async(e)=>{
+form.addEventListener("submit", async (e) => {
 
-e.preventDefault();
+    e.preventDefault();
 
-hideError();
+    hideError();
 
-const username=document.getElementById("username").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
 
-const email=document.getElementById("email").value.trim();
+    if(username.length < 3){
+        return showError("Username must be at least 3 characters.");
+    }
 
-const phone=document.getElementById("phone").value.trim();
+    if(!email.includes("@")){
+        return showError("Enter a valid email address.");
+    }
 
-const password=document.getElementById("password").value;
+    if(phone.length < 10){
+        return showError("Enter a valid phone number.");
+    }
 
-const confirmPassword=document.getElementById("confirmPassword").value;
+    if(password.length < 8){
+        return showError("Password must be at least 8 characters.");
+    }
 
-if(username.length<3){
+    if(password !== confirmPassword){
+        return showError("Passwords do not match.");
+    }
 
-showError("Username must contain at least 3 characters.");
+    button.disabled = true;
+    button.textContent = "Creating Account...";
 
-return;
+    try{
 
-}
+        await registerUser({
+            username,
+            email,
+            phone,
+            password
+        });
 
-if(!email.includes("@")){
+        window.location.href = "dashboard.html";
 
-showError("Enter a valid email address.");
+    }catch(error){
 
-return;
+        showError(error.message);
 
-}
+        button.disabled = false;
+        button.textContent = "Create Account";
 
-if(phone.length<10){
-
-showError("Enter a valid phone number.");
-
-return;
-
-}
-
-if(password.length<8){
-
-showError("Password must be at least 8 characters.");
-
-return;
-
-}
-
-if(password!==confirmPassword){
-
-showError("Passwords do not match.");
-
-return;
-
-}
-
-button.disabled=true;
-
-button.textContent="Creating Account...";
-
-try{
-
-await createNovaPayAccount({
-
-username,
-
-email,
-
-phone,
-
-password
-
-});
-
-alert("Account created successfully.");
-
-window.location.href="login.html";
-
-}catch(error){
-
-showError(error.message);
-
-}
-
-button.disabled=false;
-
-button.textContent="Create Account";
+    }
 
 });

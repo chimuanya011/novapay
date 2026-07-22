@@ -1,6 +1,6 @@
-// ===============================
-// NOVAPAY FIREBASE CONFIG
-// ===============================
+// =========================================
+// NOVAPAY FIREBASE
+// =========================================
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 
@@ -8,9 +8,9 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth
 
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
-// ===============================
+// =========================================
 // FIREBASE CONFIG
-// ===============================
+// =========================================
 
 const firebaseConfig = {
 
@@ -28,9 +28,9 @@ appId: "1:194275506659:web:fcaa1b1e19c559443cc8d6"
 
 };
 
-// ===============================
-// INITIALIZE FIREBASE
-// ===============================
+// =========================================
+// INITIALIZE
+// =========================================
 
 const app = initializeApp(firebaseConfig);
 
@@ -38,16 +38,8 @@ const auth = getAuth(app);
 
 const db = getFirestore(app);
 
-// ===============================
+// =========================================
 // EXPORT
-// ===============================
+// =========================================
 
-export {
-
-app,
-
-auth,
-
-db
-
-};
+export { auth, db };
