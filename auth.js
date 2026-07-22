@@ -33,6 +33,7 @@ userData.password
 );
 
 const user = userCredential.user;
+console.log("Saving user to Firestore...");
 
 await setDoc(doc(db,"users",user.uid),{
 uid:user.uid,
