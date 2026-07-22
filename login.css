@@ -1,152 +1,153 @@
+/* =========================================
+   NOVAPAY LOGIN
+========================================= */
+
 *{
-
 margin:0;
-
 padding:0;
-
 box-sizing:border-box;
-
 font-family:Arial,Helvetica,sans-serif;
-
 }
 
 body{
-
-background:#f5f8ff;
-
+background:#f5f7ff;
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 min-height:100vh;
-
-padding:25px;
-
+padding:20px;
 }
 
-.login-page{
-
+.login-container{
 width:100%;
-
-max-width:450px;
-
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
 .login-card{
-
+width:100%;
+max-width:430px;
 background:#ffffff;
-
-padding:40px 30px;
-
-border-radius:30px;
-
-box-shadow:0 20px 45px rgba(0,0,0,.08);
-
+border-radius:28px;
+padding:28px;
+box-shadow:0 15px 35px rgba(37,99,235,.12);
 }
 
-.brand{
-
+.logo{
 text-align:center;
-
-margin-bottom:35px;
-
+margin-bottom:20px;
 }
 
-.brand h1{
-
-font-size:48px;
-
+.logo h1{
+font-size:40px;
 font-weight:800;
-
+background:linear-gradient(90deg,#2563eb,#3b82f6);
+background-clip:text;
+-webkit-background-clip:text;
+color:transparent;
+-webkit-text-fill-color:transparent;
+margin-bottom:8px;
 }
 
-.blue{
-
-color:#2f6df6;
-
-}
-
-.dark{
-
-color:#111827;
-
-}
-
-.brand p{
-
-margin-top:10px;
-
-font-size:18px;
-
+.logo p{
+font-size:16px;
 color:#6b7280;
+}
 
-} 
+#message{
+display:none;
+padding:12px;
+border-radius:12px;
+margin-bottom:18px;
+font-size:14px;
+font-weight:600;
+text-align:center;
+}
+
+.success{
+display:block!important;
+background:#e8f1ff;
+color:#2563eb;
+border:1px solid #2563eb;
+}
+
+.error{
+display:block!important;
+background:#fff1f2;
+color:#dc2626;
+border:1px solid #dc2626;
+}
+
 .input-group{
-margin-bottom:22px;
+margin-bottom:18px;
 }
 
 .input-group label{
 display:block;
-font-size:16px;
-font-weight:700;
 margin-bottom:8px;
+font-size:15px;
+font-weight:700;
 color:#1f2937;
 }
 
 .input-group input{
 width:100%;
-padding:18px;
+height:56px;
 border:2px solid #e5e7eb;
 border-radius:18px;
+padding:0 18px;
 font-size:16px;
+background:#fff;
 outline:none;
 transition:.3s;
 }
 
 .input-group input:focus{
-border-color:#2f6df6;
-box-shadow:0 0 0 4px rgba(47,109,246,.12);
+border-color:#2563eb;
+box-shadow:0 0 0 4px rgba(37,99,235,.12);
+} 
+.password-box{
+position:relative;
+display:flex;
+align-items:center;
 }
 
-.forgot-password{
-text-align:right;
-margin-bottom:18px;
+.password-box input{
+padding-right:55px;
 }
 
-.forgot-password a{
-text-decoration:none;
-color:#2f6df6;
-font-weight:600;
-font-size:14px;
+.togglePassword{
+position:absolute;
+right:15px;
+background:none;
+border:none;
+cursor:pointer;
+font-size:18px;
+color:#2563eb;
 }
 
-.error-box{
-display:none;
-background:#fee2e2;
-color:#b91c1c;
-padding:12px;
-border-radius:12px;
-margin-bottom:18px;
-font-size:14px;
+.togglePassword:hover{
+color:#1d4ed8;
 }
 
 .login-btn{
 width:100%;
-padding:18px;
-background:#2f6df6;
-color:#fff;
+height:56px;
 border:none;
 border-radius:18px;
+background:linear-gradient(90deg,#2563eb,#3b82f6);
+color:#ffffff;
 font-size:18px;
 font-weight:700;
 cursor:pointer;
+margin-top:10px;
 transition:.3s;
 }
 
 .login-btn:hover{
-background:#1d4ed8;
+transform:translateY(-2px);
+box-shadow:0 12px 25px rgba(37,99,235,.25);
 }
 
 .login-btn:disabled{
@@ -156,34 +157,52 @@ cursor:not-allowed;
 
 .register-link{
 text-align:center;
-margin-top:22px;
+margin-top:20px;
 font-size:15px;
 color:#6b7280;
 }
 
 .register-link a{
-color:#2f6df6;
+color:#2563eb;
 font-weight:700;
 text-decoration:none;
 }
 
-@media(max-width:480px){
+.register-link a:hover{
+text-decoration:underline;
+}
+
+@media (max-width:480px){
+
+body{
+padding:14px;
+}
 
 .login-card{
-padding:30px 22px;
+padding:22px;
 border-radius:24px;
 }
 
-.brand h1{
-font-size:42px;
+.logo h1{
+font-size:34px;
+}
+
+.logo p{
+font-size:15px;
+}
+
+.input-group{
+margin-bottom:15px;
 }
 
 .input-group input{
-padding:16px;
+height:52px;
+font-size:15px;
 }
 
 .login-btn{
-padding:16px;
+height:52px;
+font-size:17px;
 }
 
 }

@@ -1,104 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NovaPay Login</title>
 
 <link rel="stylesheet" href="login.css">
-
 </head>
 
 <body>
 
-<div class="login-page">
+<div class="login-container">
 
 <div class="login-card">
 
-<div class="brand">
-
-<h1>
-
-<span class="blue">Nova</span><span class="dark">Pay</span>
-
-</h1>
-
-<p>
-
-Welcome back
-
-</p>
-
+<div class="logo">
+<h1>NovaPay</h1>
+<p>Welcome Back</p>
 </div>
+
+<div id="message"></div>
 
 <form id="loginForm">
 
 <div class="input-group">
-
-<label>Email Address or Phone Number</label>
-
+<label for="email">Email Address</label>
 <input
-
 type="email"
-
 id="email"
-
-placeholder="Enter your email or phone number"
-
-required>
-
+placeholder="Enter your email"
+required
+>
 </div>
 
 <div class="input-group">
+<label for="password">Password</label>
 
-<label>Password</label>
+<div class="password-box">
 
 <input
-
 type="password"
-
 id="password"
-
 placeholder="Enter your password"
+required
+>
 
-required>
+<button
+type="button"
+class="togglePassword"
+id="togglePassword"
+>
+👁
+</button>
 
-</div> 
-<div class="forgot-password">
-<a href="#">
-Forgot Password?
-</a>
 </div>
-
-<div id="loginError" class="error-box"></div>
+</div>
 
 <button
 type="submit"
+class="login-btn"
 id="loginBtn"
-class="login-btn">
-
+>
 Login
-
 </button>
 
 <div class="register-link">
-
 <p>
-
 Don't have an account?
-
-<a href="registration.html">
-
-Create Account
-
-</a>
-
+<a href="register.html">Create Account</a>
 </p>
-
 </div>
 
 </form>
@@ -107,8 +78,7 @@ Create Account
 
 </div>
 
-<script src="login.js"></script>
+<script type="module" src="login.js"></script>
 
 </body>
-
 </html>
